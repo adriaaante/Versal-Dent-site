@@ -1,0 +1,177 @@
+# Versal-Dent — заметки для агента
+
+Премиальная стоматология «Версаль-Дент», домен **versal-dent.ru**.
+Сайт собран по образцу Angel-Dent (та же архитектура, те же услуги и
+акции), но это **отдельная клиника**: другие врачи, контакты, реквизиты
+и собственный бежево-золотой премиум-стиль.
+
+Плоская статика, без сборщика/шаблонизатора. **Массовая правка хедера /
+футера / FAB = трогаем каждый HTML-файл** (или Python-патч в `scripts/`).
+
+## ⚠️ ЗАГЛУШКИ — заполнить реальными данными перед запуском
+
+Реальные данные клиники были недоступны при сборке, поэтому проставлены
+**заметные заглушки в квадратных скобках**. Найти все: `grep -rn "\[" --include='*.html'`.
+Заменить нужно:
+
+- **Телефон:** `+7 (000) 000-00-00` / `tel:+70000000000` / `wa.me/70000000000`
+- **Город / адрес / индекс / метро:** `[ГОРОД]`, `[АДРЕС КЛИНИКИ]`,
+  `[ИНДЕКС]`, `[МЕТРО]`, `[РАЙОН]`, `[РЕГИОН]`, `[РАЙОН/МЕТРО]`
+- **Координаты карты:** в `index.html` и `contacts.html` карта
+  Яндекса стоит на placeholder-координатах (центр Москвы) — заменить
+  `ll=37.6173%2C55.7558&z=12` на реальные `ll`/`oid` клиники.
+- **Реквизиты:** `[ОГРН]`, `[ИНН]`, `[НОМЕР ЛИЦЕНЗИИ]`,
+  `[АДРЕС ЛИЦЕНЗИРУЮЩЕГО ОРГАНА]`, ФИО ген. директора в `oferta.html`.
+- **Врачи:** `[ФИО врача — …]` на страницах `doctors/` и на главной —
+  поставить реальные имена, регалии и фото (см. ниже).
+- **Соцсети:** ник-placeholder `versaldent` (Telegram/VK/WhatsApp/Дзен) —
+  заменить на реальные или убрать ссылки.
+- **Email:** `info@versal-dent.ru` (подтвердить).
+- **Яндекс.Метрика:** счётчик-placeholder `00000000` в `<head>` каждой
+  страницы — вписать реальный id (см. ниже).
+- **Telegram-бот заявок:** `api/config.php` (токен + chat_id) — завести
+  на сервере из `api/config.php.example`.
+- **Отзывы:** страница `reviews.html` и блок отзывов на главной — честная
+  заглушка «мы недавно открылись». Когда появятся реальные отзывы на
+  Яндекс.Картах/2ГИС — вернуть карточки рейтинга и `JSON-LD AggregateRating`
+  в `index.html` (помечено TODO).
+
+Единый источник правды по контактам (если правят — править во всех
+местах: `index.html`, `contacts.html`, футер всех страниц, топбар,
+FAB-виджет, JSON-LD `Dentist` в `<head>` главной):
+- Телефон, адрес, график (ежедневно 10:00–20:00), email, соцсети.
+
+## Фирменный стиль — бежево-золотой премиум
+
+Полная палитра и типографика — в **`BRAND.md`** (использовать для сайта
+и для генерации рекламы в едином стиле). Токены — в `:root`
+`assets/css/styles.css`. Заголовки — серив **Playfair Display**, текст —
+**Manrope** (Google Fonts подключены в `<head>` каждой страницы).
+Акцент/CTA — золото `#C2A14E`, фон — айвори `#FCFAF6`, текст — эспрессо
+`#2C2620`. `theme-color` — `#C2A14E`.
+
+## Логотип, фавиконки, водяной знак
+
+Логотип — серебряный зуб с золотым имплантом (icon-only, без надписи),
+взят из Google Drive владельца (см. ниже).
+- `assets/img/logo.png` — мастер (512², прозрачный) — для JSON-LD/OG.
+- `assets/img/logo-mark.png` — цветной знак для шапки (192²).
+- `assets/img/watermark.png` — цветной знак для портфолио (640²).
+- Фавиконки — `scripts/build-favicons.py` (золотой силуэт на эспрессо-фоне):
+  `favicon-16/32/180.png` + `favicon.ico`. Перегенерация: запустить скрипт
+  из корня репо.
+
+## Google Drive — прямой доступ через MCP
+
+Подключён MCP-сервер Google Drive владельца (`adriaaante@gmail.com`).
+Качаю бинари напрямую (не прошу «куда положить»). Инструменты:
+`mcp__1624bf30-…__{search_files,get_file_metadata,download_file_content,
+read_file_content,list_recent_files}`.
+
+Паттерн скачивания по ссылке `https://drive.google.com/file/d/<ID>/view`:
+1. `get_file_metadata(fileId=<ID>)` — проверить mime/размер.
+2. `download_file_content(fileId=<ID>)` — base64 (крупные файлы harness
+   сохранит в tool-results, читать через jq/python, не Read).
+3. Python: `base64.b64decode(payload['content'])` → записать в репо.
+
+Логотип клиники: «Лого без фона.png»
+(`fileId = 1rt5bEKkRhEGVu8c3Q-lCJJN4bTMff1ny`).
+*(TODO: id папки клиники в Drive — уточнить у владельца.)*
+
+## Портфолио «до/после» и водяной знак
+
+Портфолио сейчас пустое (фото врачей Версаль ещё нет). Когда появятся:
+- Оригинал → `assets/img/portfolio/_originals/<имя>.webp` (4:3, 1200×896).
+- `python3 scripts/apply-watermark.py <имя>.webp` → водмаркнутая версия
+  в `assets/img/portfolio/<имя>.webp` (на неё ссылается
+  `assets/js/portfolio.js`). Знак — 32% ширины, правый нижний угол.
+- Коммитить и оригинал, и водмаркнутую версию.
+Ключи врачей в `window.AD_PORTFOLIO` (`portfolio.js`) совпадают со slug-ами
+страниц врачей.
+
+## Акционные строки в прайс-таблицах — единый формат
+
+Бейдж **`<span class="badge-promo">Акция</span>` справа от названия
+услуги** (1-я колонка), а в колонке цены — только цена: новая +
+зачёркнутая старая. Эталон — Amazing White в `services/gigiena.html`.
+
+```html
+<tr><td>Название услуги <span class="badge-promo">Акция</span></td>
+    <td class="price-now">17 500 ₽ <s style="font-weight:400;opacity:.55">25 000 ₽</s></td></tr>
+```
+
+## Яндекс.Метрика и цели для Директа
+
+Счётчик-placeholder `00000000` в `<head>` **каждой** страницы (новую
+страницу — копировать блок `<!-- Yandex.Metrika counter -->`, вписать
+реальный id во все вхождения: `id=…`, `ym(…, 'init'…)`, `watch/…`).
+Программные цели в `assets/js/main.js` (helper `trackGoal()`), имена в
+кабинете Метрики должны совпадать:
+
+| Цель | Тип | Когда |
+|------|-----|-------|
+| `lead_submit` | макро | Форма отправлена (200 от lead.php) |
+| `call_click` | макро | Клик по `tel:` |
+| `whatsapp_click` | макро | Клик по `wa.me/...` |
+| `telegram_click` | макро | Клик по `t.me/...` |
+| `modal_open` | микро | Открытие модалки записи |
+| `form_start` | микро | Первый фокус в поле формы |
+
+UTM/`yclid` запоминаются в `sessionStorage` и уходят в заявку
+(`_utm_*`/`_yclid`/`_gclid`), `api/lead.php` кладёт их в Telegram блоком
+«📊 Источник».
+
+## Форма заявки → PHP-прокси → Telegram
+
+`assets/js/main.js` (`sendLead`) шлёт `FormData` на `/api/lead.php` (свой
+домен). `api/lead.php` собирает сообщение и серверным curl шлёт в Telegram
+API. Токен и chat_id — в `api/config.php` (**в .gitignore, в репо нет**),
+создаётся на сервере из `api/config.php.example`. Honeypot-поле `company`.
+Маска телефона `+7 (XXX) XXX-XX-XX` — `maskPhone` в `main.js`.
+
+## FAB-виджет (WhatsApp / Telegram / Позвонить)
+
+`<div class="fab" data-fab>…</div>` должен быть **на каждой странице**
+(обычно в конце `<body>`). Инициализация — в `main.js` (`DOMContentLoaded`).
+
+## Структура сайта
+
+Корень: `index.html`, `about.html`, `promotions.html`, `reviews.html`,
+`contacts.html`, `legal.html`, `oferta.html`, `privacy.html`,
+`consent.html`, `cookies.html`, `404.html`.
+- `services/` — `index.html` + 9 услуг: `implantaciya`, `ortodontiya`,
+  `terapiya`, `hirurgiya`, `protezirovanie`, `parodontologiya`, `viniry`,
+  `gigiena`, `detskaya`.
+- `doctors/` — `index.html` + 5 страниц-слотов по slug-ам (`drobkova`,
+  `geworkyan`, `rustamli`, `rustamov`, `smolyakova` — **slug-и оставлены
+  от шаблона; имена внутри — заглушки**, заменить на реальных врачей; при
+  желании переименовать slug-и и обновить ссылки/sitemap).
+- `blog/` — `index.html` + 6 статей.
+
+## Деплой на reg.ru
+
+Деплой **с самого сервера** (Shell-клиент ISPmanager), не из контейнера.
+`scripts/deploy.sh` делает `git pull` + `rsync` из `~/Versal-Dent-site/`
+в `~/www/versal-dent.ru/`. Симлинк `~/deploy.sh → …/scripts/deploy.sh`.
+```
+~/deploy.sh --dry   # план
+~/deploy.sh         # выкатить
+```
+На хостинг не попадают: `.git/`, `.github/`, `.claude/`, `scripts/`,
+`CLAUDE.md`, `README.md`, `BRAND.md`, `.gitignore`, `_originals/`,
+`api/config.php.example`. `api/config.php` живёт только на сервере.
+
+## Workflow пушей
+
+Разработка — на ветке **`claude/pensive-wright-7oxce`**. Пушим:
+```
+git push -u origin claude/pensive-wright-7oxce
+```
+**В `main` НЕ пушим без явного разрешения владельца.** PR не создаём,
+если не попросили.
+
+## Что НЕ делать без явной просьбы
+- Не выдумывать отзывы/рейтинги — только реальные с публичных площадок.
+- Не приписывать клинике чужие реквизиты/лицензию/врачей — это заглушки.
+- Не пересоздавать водмаркнутые фото руками — только `apply-watermark.py`.
+- Не пушить в `main`.

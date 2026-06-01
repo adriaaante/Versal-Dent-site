@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Allow: /legal.html
+Allow: /doctors/
+Allow: /services/
+Allow: /blog/
+
+# Технические страницы — для индексации не требуются
+Disallow: /404.html
+
+Sitemap: https://versal-dent.ru/sitemap.xml
+Host: versal-dent.ru

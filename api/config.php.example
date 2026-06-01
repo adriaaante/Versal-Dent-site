@@ -1,0 +1,11 @@
+<?php
+// Шаблон конфига для api/lead.php.
+// Скопируйте в api/config.php и заполните реальные значения.
+// api/config.php в .gitignore — в репо не коммитится.
+//
+// При деплое через scripts/deploy.sh этот файл генерируется
+// автоматически из scripts/.deploy.env. Руками править нужно
+// только если деплоите вручную.
+
+define('TELEGRAM_BOT_TOKEN', 'PUT-YOUR-BOT-TOKEN-HERE');
+define('TELEGRAM_CHAT_ID',  'PUT-YOUR-CHAT-ID-HERE');
