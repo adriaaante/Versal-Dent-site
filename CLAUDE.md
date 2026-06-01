@@ -134,19 +134,40 @@ API. Токен и chat_id — в `api/config.php` (**в .gitignore, в репо
 `<div class="fab" data-fab>…</div>` должен быть **на каждой странице**
 (обычно в конце `<body>`). Инициализация — в `main.js` (`DOMContentLoaded`).
 
-## Структура сайта
+## Структура сайта (уникальная IA — отличается от Angel-Dent)
+
+Навигация (на всех страницах одинаковая, верхнее меню):
+Главная · Услуги · **Цены** · Врачи · **Технологии** · Акции · Блог ·
+Контакты. «О клинике» и «Отзывы» — в подвале. Меняешь меню — правь во
+всех HTML (или скриптом, см. историю коммитов).
 
 Корень: `index.html`, `about.html`, `promotions.html`, `reviews.html`,
 `contacts.html`, `legal.html`, `oferta.html`, `privacy.html`,
-`consent.html`, `cookies.html`, `404.html`.
-- `services/` — `index.html` + 9 услуг: `implantaciya`, `ortodontiya`,
+`consent.html`, `cookies.html`, `404.html`, плюс **уникальные SEO-страницы
+Версаля** (которых нет у Angel):
+- `ceny.html` — полный прайс-лист по направлениям.
+- `tehnologii.html` — оборудование (КТ, микроскоп, 3Shape, седация, DSD).
+- `garantii.html` — гарантия по договору, стерилизация, документы.
+- `etapy.html` — этапы лечения (маршрут пациента).
+
+Эти 4 страницы есть в меню, в подвале (колонка «Клиника»), в `sitemap.xml`
+и перелинкованы с главной и со страниц услуг/врачей/блога (блоки
+`related__grid`).
+
+- `services/` — `index.html` + 9 услуг (`implantaciya`, `ortodontiya`,
   `terapiya`, `hirurgiya`, `protezirovanie`, `parodontologiya`, `viniry`,
-  `gigiena`, `detskaya`.
-- `doctors/` — `index.html` + 5 страниц-слотов по slug-ам (`drobkova`,
-  `geworkyan`, `rustamli`, `rustamov`, `smolyakova` — **slug-и оставлены
-  от шаблона; имена внутри — заглушки**, заменить на реальных врачей; при
-  желании переименовать slug-и и обновить ссылки/sitemap).
-- `blog/` — `index.html` + 6 статей.
+  `gigiena`, `detskaya`). **Шаблон услуги перестроен:** после page-hero —
+  полоса `usps` (быстрые факты), внизу перед `related` — блок-перелинковка
+  на Технологии/Гарантии/Этапы/Цены.
+- `doctors/` — `index.html` + 5 страниц-слотов (`drobkova`, `geworkyan`,
+  `rustamli`, `rustamov`, `smolyakova` — **slug-и от шаблона; имена внутри —
+  заглушки**). Перед CTA добавлен блок «Лечение в Версаль-Дент» с
+  перелинковкой.
+- `blog/` — `index.html` + 6 статей (тоже с блоком перелинковки перед CTA).
+
+Главная (`index.html`) переработана и по композиции: hero → usps →
+«Почему Версаль» → «Технологии» → услуги → «Этапы лечения» → врачи →
+«Цены и гарантии» → FAQ → контакты → CTA.
 
 ## Деплой на reg.ru
 
