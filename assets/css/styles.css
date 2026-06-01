@@ -915,3 +915,10 @@ p { margin: 0 0 1em; }
 /* Акции — отдельный стиль карточек предложений */
 .promo-grid .service-card { position: relative; border-top: 3px solid var(--c-accent); background: linear-gradient(180deg,#ffffff 0%, #FBF6EE 100%); }
 .promo-grid .service-card .hero__offer-tag { position: absolute; top: 14px; right: 14px; margin: 0; }
+
+
+/* Галерея интерьера клиники (реальные фото) */
+.clinic-gallery{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+.clinic-gallery img{ width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:var(--radius); border:1px solid var(--c-border); box-shadow:var(--shadow-sm); transition:transform .2s ease, box-shadow .2s ease; }
+.clinic-gallery img:hover{ transform:translateY(-3px); box-shadow:var(--shadow); }
+@media (max-width:720px){ .clinic-gallery{ grid-template-columns:1fr 1fr; gap:10px; } }
