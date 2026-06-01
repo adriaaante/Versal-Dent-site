@@ -922,3 +922,24 @@ p { margin: 0 0 1em; }
 .clinic-gallery img{ width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:var(--radius); border:1px solid var(--c-border); box-shadow:var(--shadow-sm); transition:transform .2s ease, box-shadow .2s ease; }
 .clinic-gallery img:hover{ transform:translateY(-3px); box-shadow:var(--shadow); }
 @media (max-width:720px){ .clinic-gallery{ grid-template-columns:1fr 1fr; gap:10px; } }
+
+
+/* Hero cover — реальное фото клиники под текстом первого экрана */
+.hero--center{
+  background-image:
+    linear-gradient(rgba(252,250,246,.74), rgba(251,246,238,.82)),
+    url("../img/clinic/clinic-1.webp");
+  background-size: cover;
+  background-position: center;
+  padding: 96px 0 84px;
+}
+.hero--center .hero__inner{
+  background: rgba(255,255,255,.55);
+  -webkit-backdrop-filter: blur(6px) saturate(140%);
+          backdrop-filter: blur(6px) saturate(140%);
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 14px 44px rgba(44,38,32,.10);
+  padding: 38px 40px;
+}
+@media (max-width:600px){ .hero--center{ padding:64px 0 56px; } .hero--center .hero__inner{ padding:26px 20px; } }
