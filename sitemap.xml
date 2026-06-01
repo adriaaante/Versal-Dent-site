@@ -100,27 +100,7 @@
     <changefreq>monthly</changefreq>
     <image:image>
       <image:loc>https://versal-dent.ru/assets/img/doctors/placeholder.svg</image:loc>
-      <image:title>[ФИО врача — главный врач] — главный врач клиники «Версаль-Дент», стоматолог-ортодонт</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://versal-dent.ru/doctors/geworkyan.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-    <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/placeholder.svg</image:loc>
-      <image:title>[ФИО врача — ген. директор] — генеральный директор, стоматолог-хирург, имплантолог</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://versal-dent.ru/doctors/rustamli.html</loc>
-    <lastmod>2026-06-01</lastmod>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-    <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/placeholder.svg</image:loc>
-      <image:title>[ФИО врача — хирург-имплантолог] — стоматолог-хирург, имплантолог</image:title>
+      <image:title>[ФИО врача — главный врач] — главный врач клиники «Версаль», стоматолог-ортодонт</image:title>
     </image:image>
   </url>
   <url>

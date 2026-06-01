@@ -62,7 +62,7 @@ $labels = [
     'message' => 'Комментарий',
 ];
 
-$lines = ['🦷 *Заявка с сайта Версаль-Дент*', ''];
+$lines = ['🦷 *Заявка с сайта Версаль*', ''];
 foreach ($_POST as $key => $value) {
     if ($key === 'company' || $key[0] === '_') continue;
     $value = trim((string)$value);
