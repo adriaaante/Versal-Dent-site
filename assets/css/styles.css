@@ -798,3 +798,90 @@ p { margin: 0 0 1em; }
 .promo-note__icon { flex: 0 0 auto; font-size: 20px; line-height: 1.3; }
 .promo-note strong { color: var(--c-primary); }
 .promo-note a { color: var(--c-primary); font-weight: 600; }
+
+
+/* ============================================================
+   VERSAL-DENT — фирменный редизайн (уникальный облик, не клон).
+   Переопределяем «подписные» элементы поверх базовых правил
+   Angel-шаблона: редакционно-люксовая подача, бежево-золото.
+   ============================================================ */
+
+/* Радиусы строже (редакционный люкс вместо мягко-скруглённого) */
+:root{ --radius-sm: 3px; --radius: 6px; --radius-lg: 10px; }
+
+/* Кнопки — прямоугольные, капс, разрядка */
+.btn{ border-radius: 3px; text-transform: uppercase; letter-spacing: .09em; font-weight: 700; font-size: 13px; padding: 15px 30px; }
+.btn--lg{ padding: 17px 38px; font-size: 13.5px; }
+.btn--primary{ background: var(--c-primary); border-color: var(--c-primary); box-shadow: none; }
+.btn--primary:hover{ background: var(--c-primary-dark); box-shadow: 0 8px 22px rgba(74,63,53,.22); }
+.btn--accent{ box-shadow: none; }
+.btn--accent:hover{ background: var(--c-accent-dark); transform: translateY(-1px); box-shadow: 0 8px 22px rgba(194,161,78,.30); }
+.btn--ghost:hover{ background: var(--c-primary); color: #fff; }
+
+/* Топбар чуть светлее по разрядке */
+.topbar{ background: var(--c-primary); letter-spacing: .02em; }
+
+/* Шапка — тонкая, плоская; лого серивом, без кремовой «капсулы»,
+   навигация капсом с золотым подчёркиванием */
+.header{ background: var(--c-bg); -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom: 1px solid var(--c-border); }
+.header__inner{ padding: 18px 0; }
+.logo{ font-family: var(--font-head); font-weight: 600; font-size: 23px; letter-spacing: 0; gap: 12px; }
+.logo__mark{ width: 46px; height: 46px; background: transparent; border-radius: 0; padding: 0; }
+.logo__name small{ font-family: var(--font); letter-spacing: .22em; color: var(--c-accent-dark); font-weight: 600; }
+.nav{ gap: 26px; }
+.nav a{ text-transform: uppercase; letter-spacing: .08em; font-size: 12.5px; font-weight: 600; color: var(--c-text); position: relative; padding: 6px 0; }
+.nav a::after{ content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 2px; background: var(--c-accent); transition: right .25s ease; }
+.nav a:hover::after, .nav a.is-active::after{ right: 0; }
+.nav a:hover, .nav a.is-active{ color: var(--c-primary); }
+.header__phone{ font-family: var(--font); }
+@media (max-width: 720px){ .nav a::after{ display: none; } }
+
+/* Eyebrow — золотой с разрядкой; заголовки секций — короткая золотая линия */
+.eyebrow{ color: var(--c-accent-dark); letter-spacing: .18em; font-weight: 700; }
+.section__title{ position: relative; padding-bottom: 20px; }
+.section__title::after{ content: ""; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); width: 56px; height: 2px; background: var(--c-accent); }
+
+/* Hero — редакционный: чистый кремовый, без фоновой фотографии,
+   «пыли» и стеклянной карточки; крупный серив-заголовок */
+.hero{ background: linear-gradient(118deg, #F7F0E4 0%, #FBF6EE 62%); padding: 84px 0 88px; border-bottom: 1px solid var(--c-border); }
+.hero__bg{ display: none !important; }
+.hero__dust{ display: none !important; }
+.hero__grid > div:first-child::before{ display: none !important; }
+.hero__title{ font-size: clamp(34px, 5vw, 58px); line-height: 1.08; }
+.hero .eyebrow{ position: relative; padding-left: 48px; }
+.hero .eyebrow::before{ content: ""; position: absolute; left: 0; top: 50%; width: 36px; height: 2px; background: var(--c-accent); }
+.hero__badge{ background: transparent; border-color: var(--c-border-dark); border-radius: 3px; box-shadow: none; }
+.hero__badge svg{ color: var(--c-accent-dark); }
+.hero__offer{ border-radius: 6px; border: 1px solid var(--c-border-dark); border-top: 3px solid var(--c-accent); box-shadow: var(--shadow); }
+@media (max-width: 1024px){ .hero{ padding: 56px 0 60px; } }
+
+/* Карточки — плоские, с золотым акцентом, без «прыжка» вверх */
+.service-card, .doctor-card, .related__card, .rating-card, .review-quote, .pf-card,
+.faq__item, .form, .prices-table{ border-radius: 6px; box-shadow: none; border-color: var(--c-border-dark); }
+.service-card{ border-top: 3px solid transparent; }
+.service-card:hover{ transform: none; box-shadow: var(--shadow); border-color: var(--c-border-dark); border-top-color: var(--c-accent); }
+.doctor-card:hover, .related__card:hover, .pf-card:hover{ transform: none; box-shadow: var(--shadow); border-color: var(--c-accent); }
+.service-card__link, .related__name, .doctor-card__role{ color: var(--c-accent-dark); }
+
+/* Иконки услуг/преимуществ — золотая обводка-круг вместо кремового квадрата */
+.service-card__icon, .usp__icon{ background: transparent; border: 1.5px solid var(--c-accent); border-radius: 50%; color: var(--c-accent-dark); }
+
+/* Прайс — шапка таблицы эспрессо */
+.prices-table th{ background: var(--c-primary); color: #fff; }
+
+/* CTA-баннер — эспрессо с золотой каймой сверху (вместо градиента) */
+.cta-banner{ background: var(--c-primary); position: relative; }
+.cta-banner::before{ content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--c-accent); }
+
+/* Плавающая кнопка — золотая */
+.fab__toggle{ background: var(--c-accent); color: #2C2620; box-shadow: 0 10px 30px rgba(194,161,78,.40); }
+.fab__toggle:hover{ background: var(--c-accent-dark); }
+.fab__toggle::after{ border-color: var(--c-accent); }
+
+/* Внутренние «page-hero» — золотая линия под заголовком */
+.page-hero h1{ position: relative; padding-bottom: 16px; }
+.page-hero h1::after{ content: ""; position: absolute; left: 0; bottom: 0; width: 56px; height: 2px; background: var(--c-accent); }
+
+/* Чуть больше воздуха между секциями */
+.section{ padding: 76px 0; }
+@media (max-width: 720px){ .section{ padding: 48px 0; } }
