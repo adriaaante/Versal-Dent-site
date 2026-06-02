@@ -952,3 +952,9 @@ p { margin: 0 0 1em; }
 
 /* Акции: бейдж скидки не должен перекрывать заголовок */
 .promo-grid .service-card h3{ padding-right:72px; }
+
+
+/* Ровный отступ над кнопками-CTA внутри контента (все страницы) */
+.section p:has(> .btn){ margin-top: 28px; }
+.article p:has(> .btn){ margin-top: 24px; }
+.promo-note + p:has(> .btn){ margin-top: 22px; }
