@@ -951,10 +951,26 @@ p { margin: 0 0 1em; }
 .service-card:hover .service-card__media img{ transform:scale(1.05); }
 
 /* Акции: бейдж скидки не должен перекрывать заголовок */
-.promo-grid .service-card h3{ padding-right:72px; }
+.promo-grid .service-card h3{ padding-right:0; }
 
 
 /* Ровный отступ над кнопками-CTA внутри контента (все страницы) */
 .section p:has(> .btn){ margin-top: 28px; }
 .article p:has(> .btn){ margin-top: 24px; }
 .promo-note + p:has(> .btn){ margin-top: 22px; }
+
+
+/* Фон портретов врачей — тёплый бежевый «студийный» (см. BRAND.md) */
+:root{ --c-portrait-bg: #ECE2CF; }
+.doctor-card__photo,
+.doctor-card__photo--placeholder,
+.doctor-hero__photo{
+  background: linear-gradient(165deg, #ECE2CF 0%, #F7F1E6 100%);
+}
+.doctor-card__photo--placeholder{ display:grid; place-items:center; }
+.doctor-card__photo--placeholder img,
+.doctor-card__photo img[src$="placeholder.svg"]{ filter: sepia(.25) saturate(1.1) hue-rotate(-8deg) brightness(.96); opacity:.85; }
+
+/* Бейдж акции — поверх картинки карточки */
+.promo-grid .service-card{ position:relative; }
+.promo-grid .service-card .hero__offer-tag{ position:absolute; top:14px; right:14px; margin:0; z-index:2; box-shadow:0 4px 12px rgba(44,38,32,.25); }
