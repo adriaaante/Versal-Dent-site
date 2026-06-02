@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" fill="none">
   <rect width="400" height="500" fill="url(#bg)"/>
-  <circle cx="200" cy="190" r="70" fill="#c9d4e8"/>
-  <path d="M80 460c0-66 54-120 120-120s120 54 120 120v40H80v-40z" fill="#c9d4e8"/>
+  <circle cx="200" cy="190" r="70" fill="#CDBDA1"/>
+  <path d="M80 460c0-66 54-120 120-120s120 54 120 120v40H80v-40z" fill="#CDBDA1"/>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="0" y2="500" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#eaf2fc"/>
-      <stop offset="1" stop-color="#f5f9ff"/>
+      <stop stop-color="#ECE2CF"/>
+      <stop offset="1" stop-color="#F7F1E6"/>
     </linearGradient>
   </defs>
 </svg>

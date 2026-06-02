@@ -4,6 +4,12 @@ name: Fetch images
 # Запуск вручную: Actions → "Fetch images" → Run workflow.
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/images.json'
+      - 'scripts/fetch_images.py'
+      - '.github/workflows/fetch-images.yml'
 
 permissions:
   contents: write
