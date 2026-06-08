@@ -1,11 +1,15 @@
 <?php
-// Шаблон конфига для api/lead.php.
-// Скопируйте в api/config.php и заполните реальные значения.
-// api/config.php в .gitignore — в репо не коммитится.
+// Шаблон конфига для api/lead.php (отправка заявок в Telegram).
 //
-// При деплое через scripts/deploy.sh этот файл генерируется
-// автоматически из scripts/.deploy.env. Руками править нужно
-// только если деплоите вручную.
+// НАСТРОЙКА НА СЕРВЕРЕ (делается один раз):
+//   1. cp api/config.php.example api/config.php
+//   2. в api/config.php вписать реальный токен бота (TELEGRAM_BOT_TOKEN).
+//      TELEGRAM_CHAT_ID уже задан — группа заявок «Версаль» (-5172196362).
+//   3. токен получить у @BotFather; бота добавить в группу и дать ему
+//      право отправлять сообщения.
+//
+// api/config.php в .gitignore — в репо не коммитится и не перезаписывается
+// при git pull / деплое. Правится только на сервере.
 
 define('TELEGRAM_BOT_TOKEN', 'PUT-YOUR-BOT-TOKEN-HERE');
-define('TELEGRAM_CHAT_ID',  'PUT-YOUR-CHAT-ID-HERE');
+define('TELEGRAM_CHAT_ID',  '-5172196362');
