@@ -321,7 +321,11 @@ p { margin: 0 0 1em; }
 .doctors-carousel__arrow--prev { left: -14px; }
 .doctors-carousel__arrow--next { right: -14px; }
 .doctors-carousel__arrow[disabled] { opacity: 0; pointer-events: none; }
-@media (max-width: 720px) { .doctors-carousel__arrow { display: none; } }
+@media (max-width: 720px) {
+  .doctors-carousel__arrow { width: 34px; height: 34px; }
+  .doctors-carousel__arrow--prev { left: 2px; }
+  .doctors-carousel__arrow--next { right: 2px; }
+}
 
 /* Reviews */
 .reviews-row { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
@@ -814,6 +818,10 @@ p { margin: 0 0 1em; }
 
 /* ── Пометка «Акция» рядом с ценой в прайс-таблицах ── */
 .badge-promo { display: inline-block; background: var(--c-accent); color: #2C2620; font-weight: 700; font-size: 11px; letter-spacing: .04em; text-transform: uppercase; padding: 2px 9px; border-radius: 100px; margin-left: 8px; vertical-align: middle; white-space: nowrap; }
+/* Бейдж «Акция» в прайсе: переносится ровно по левому краю строки (как Angel) */
+.prices-table .cell-promo { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.prices-table .cell-promo .badge-promo { margin-left: 0; }
+.service-card__price .badge-promo { margin-left: 0; }
 .prices-table .price-was { display: block; font-size: 12px; font-weight: 500; color: var(--c-text-muted); text-decoration: line-through; }
 .prices-table .price-now { color: var(--c-primary); }
 
