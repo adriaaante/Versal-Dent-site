@@ -1,33 +1,40 @@
 #!/usr/bin/env python3
-"""Prepare a doctor portrait for the Angel-Dent site.
+"""Подготовка фото врача для сайта «Версаль».
 
-Steps:
-  1. Remove the background:
-       * if the source already has transparent pixels (alpha channel
-         contains values < 250), reuse them — no need to re-run rembg;
-       * otherwise call rembg (u2net model);
-       * if rembg is not importable, fall back to a simple luminance
-         chroma-key (pixels brighter than 235 in all channels become
-         transparent).
-  2. Crop to the subject's bounding box (with light padding) and frame
-     it as a square anchored near the top so the face stays centred.
-  3. Produce two PNGs: 600x600 (hero on /doctors/<slug>.html) and
-     320x320 (thumbnail used on card grids).
+Единый стиль карточек врачей: портрет вырезается из исходного фона и
+ставится на фирменный айвори-градиент, кадр — 4:5, голова и плечи,
+лицо по центру с небольшим отступом сверху. Так выглядят все врачи
+(см. drobkova / rustamov / smolyakova) — новые фото обязаны совпадать.
 
-Usage:
-    python scripts/prepare-doctor-photo.py <source> <slug>
+Шаги:
+  1. Удаление фона:
+       * если в исходнике уже есть прозрачность (>5% пикселей с alpha<10)
+         — используем как есть;
+       * иначе rembg (модель birefnet-portrait, лучшая для портретов;
+         fallback isnet-general-use);
+       * если rembg недоступен — простой chroma-key по светлым пикселям.
+  2. Композит на айвори-градиент (верх #ECE2CF → низ #F6F0E5) в кадре 4:5,
+     лицо по центру, голова у верха. Масштаб лица регулируется --zoom
+     (доля ширины кадра, которую занимает силуэт; по умолчанию 1.0 —
+     для фото с пышными волосами/в полный разворот ставьте больше, напр.
+     1.1–1.35, чтобы лицо совпало по размеру с остальными карточками).
+  3. Две PNG: 480x600 (полная, doctors/<slug>.png) и 256x320 (миниатюра
+     карточки, doctors/<slug>-thumb.png).
 
-Examples:
-    python scripts/prepare-doctor-photo.py /tmp/raw/geworkyan.webp geworkyan
-    python scripts/prepare-doctor-photo.py /tmp/raw/smolyakova.png smolyakova
-    python scripts/prepare-doctor-photo.py ~/Downloads/drobkova.jpg drobkova
+Использование:
+    python scripts/prepare-doctor-photo.py <source> <slug> [--zoom 1.0] [--top 0.05]
 
-Output files (relative to repo root):
-    assets/img/doctors/<slug>.png        (600x600, hero)
-    assets/img/doctors/<slug>-thumb.png  (320x320, card thumb)
+Примеры:
+    python scripts/prepare-doctor-photo.py /tmp/hachatryan.jpg hachatryan --zoom 1.12
+    python scripts/prepare-doctor-photo.py /tmp/savchuk.jpg savchuk --zoom 1.3
+
+Выходные файлы (от корня репо):
+    assets/img/doctors/<slug>.png        (480x600, полная)
+    assets/img/doctors/<slug>-thumb.png  (256x320, миниатюра карточки)
 """
 from __future__ import annotations
 
+import argparse
 import sys
 from pathlib import Path
 
@@ -36,25 +43,22 @@ from PIL import Image
 REPO_ROOT = Path(__file__).resolve().parent.parent
 OUT_DIR = REPO_ROOT / "assets" / "img" / "doctors"
 
-SIZE_FULL = 600
-SIZE_THUMB = 320
+# Фирменный айвори-градиент фона (как у существующих фото врачей).
+BG_TOP = (236, 226, 207)   # #ECE2CF
+BG_BOT = (246, 240, 229)   # #F6F0E5
+
+FULL = (480, 600)          # полная (4:5)
+THUMB = (256, 320)         # миниатюра карточки (4:5)
+SS = 2                     # суперсэмплинг для гладких краёв
 
 
 def remove_background(im: Image.Image) -> Image.Image:
-    """Return an RGBA image with a transparent background.
-
-    Uses birefnet-portrait — the most accurate model for portrait
-    photos (handles dark uniforms against complex backgrounds well).
-    Falls back to u2net and finally a chroma-key if rembg is missing.
-    """
+    """RGBA с прозрачным фоном (birefnet-portrait → isnet → chroma-key)."""
     im = im.convert("RGBA")
-    # Heuristic: source counts as "already cut out" only if a substantial
-    # share of pixels is transparent (not just a thin antialiased border).
     alpha = im.split()[-1]
     transparent_share = sum(1 for v in alpha.getdata() if v < 10) / (im.width * im.height)
     if transparent_share > 0.05:
         return im
-
     try:
         from rembg import remove, new_session  # type: ignore
         import io
@@ -67,8 +71,7 @@ def remove_background(im: Image.Image) -> Image.Image:
         out_bytes = remove(buf.getvalue(), session=session)
         return Image.open(io.BytesIO(out_bytes)).convert("RGBA")
     except Exception as exc:
-        print(f"[warn] rembg unavailable ({exc}); using chroma-key fallback",
-              file=sys.stderr)
+        print(f"[warn] rembg недоступен ({exc}); chroma-key fallback", file=sys.stderr)
         return _chroma_key_fallback(im)
 
 
@@ -84,56 +87,63 @@ def _chroma_key_fallback(im: Image.Image, threshold: int = 235) -> Image.Image:
     return im
 
 
-def crop_square_face(im: Image.Image) -> Image.Image:
-    """Crop to a square framed around the subject (face-centred at the top)."""
-    alpha = im.split()[-1]
-    bbox = alpha.getbbox()
+def _gradient(w: int, h: int) -> Image.Image:
+    g = Image.new("RGB", (w, h))
+    px = g.load()
+    for y in range(h):
+        t = y / (h - 1)
+        px_row = (
+            round(BG_TOP[0] + (BG_BOT[0] - BG_TOP[0]) * t),
+            round(BG_TOP[1] + (BG_BOT[1] - BG_TOP[1]) * t),
+            round(BG_TOP[2] + (BG_BOT[2] - BG_TOP[2]) * t),
+        )
+        for x in range(w):
+            px[x, y] = px_row
+    return g
+
+
+def compose(cut: Image.Image, zoom: float, top_frac: float) -> Image.Image:
+    """Силуэт на айвори-градиент, кадр 4:5, лицо по центру у верха."""
+    bbox = cut.split()[-1].getbbox()
     if bbox is None:
-        raise SystemExit("background removal produced an empty alpha channel")
-
-    subject = im.crop(bbox)
-    w, h = subject.size
-
-    side_pad = int(0.06 * w)
-    square = max(w + 2 * side_pad, int(h * 0.72))
-    crop_h = min(h, square)
-
-    canvas = Image.new("RGBA", (square, square), (0, 0, 0, 0))
-    paste_x = (square - w) // 2
-    top_pad = int(0.02 * square)
-    head = subject.crop((0, 0, w, crop_h))
-    canvas.paste(head, (paste_x, top_pad), head)
-    return canvas
+        raise SystemExit("после удаления фона alpha-канал пустой")
+    subj = cut.crop(bbox)
+    w, h = FULL[0] * SS, FULL[1] * SS
+    sw, sh = subj.size
+    scale = (zoom * w) / sw
+    subj = subj.resize((max(1, round(sw * scale)), max(1, round(sh * scale))), Image.LANCZOS)
+    canvas = _gradient(w, h).convert("RGBA")
+    x = (w - subj.width) // 2
+    y = round(top_frac * h)
+    canvas.alpha_composite(subj, (x, y))
+    return canvas.convert("RGB")
 
 
-def prepare(src_path: Path, slug: str) -> None:
-    raw = Image.open(src_path)
-    print(f"[1/4] open: {src_path} {raw.size} {raw.mode}")
-
-    print("[2/4] remove background")
+def prepare(src: Path, slug: str, zoom: float, top_frac: float) -> None:
+    raw = Image.open(src)
+    print(f"[1/3] open: {src} {raw.size} {raw.mode}")
+    print("[2/3] удаление фона")
     cut = remove_background(raw)
-
-    print("[3/4] crop to square (face-centred)")
-    canvas = crop_square_face(cut)
-    print(f"        canvas={canvas.size}")
-
-    print("[4/4] resize and save")
+    print(f"[3/3] композит (zoom={zoom}, top={top_frac}) и сохранение")
+    canvas = compose(cut, zoom, top_frac)
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    big = canvas.resize((SIZE_FULL, SIZE_FULL), Image.LANCZOS)
-    small = canvas.resize((SIZE_THUMB, SIZE_THUMB), Image.LANCZOS)
-    big_path = OUT_DIR / f"{slug}.png"
-    small_path = OUT_DIR / f"{slug}-thumb.png"
-    big.save(big_path, optimize=True)
-    small.save(small_path, optimize=True)
-    print(f"        wrote {big_path}")
-    print(f"        wrote {small_path}")
+    full_path = OUT_DIR / f"{slug}.png"
+    thumb_path = OUT_DIR / f"{slug}-thumb.png"
+    canvas.resize(FULL, Image.LANCZOS).save(full_path, optimize=True)
+    canvas.resize(THUMB, Image.LANCZOS).save(thumb_path, optimize=True)
+    print(f"        {full_path}")
+    print(f"        {thumb_path}")
 
 
 def main(argv: list[str]) -> int:
-    if len(argv) != 3:
-        print(__doc__)
-        return 1
-    prepare(Path(argv[1]).expanduser(), argv[2].strip().lower())
+    p = argparse.ArgumentParser(description="Фото врача → айвори-градиент 4:5")
+    p.add_argument("source")
+    p.add_argument("slug")
+    p.add_argument("--zoom", type=float, default=1.0,
+                   help="доля ширины кадра под силуэт (по умолч. 1.0; больше = крупнее лицо)")
+    p.add_argument("--top", type=float, default=0.05, help="отступ макушки сверху, доля высоты")
+    a = p.parse_args(argv[1:])
+    prepare(Path(a.source).expanduser(), a.slug.strip().lower(), a.zoom, a.top)
     return 0
 
 
