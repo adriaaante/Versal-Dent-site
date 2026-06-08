@@ -261,6 +261,35 @@
     });
   });
 
+  // Русские сообщения нативной валидации форм (вместо англ. по локали браузера)
+  (function () {
+    function ruMessage(el) {
+      var v = el.validity;
+      if (v.valueMissing) {
+        if (el.type === 'checkbox') return 'Пожалуйста, поставьте эту галочку, чтобы продолжить.';
+        if (el.type === 'tel') return 'Пожалуйста, укажите номер телефона.';
+        return 'Пожалуйста, заполните это поле.';
+      }
+      if (v.typeMismatch || v.patternMismatch) {
+        if (el.type === 'tel') return 'Введите телефон в формате +7 (XXX) XXX-XX-XX.';
+        if (el.type === 'email') return 'Введите корректный адрес электронной почты.';
+        return 'Проверьте правильность ввода.';
+      }
+      return 'Пожалуйста, заполните это поле правильно.';
+    }
+    // invalid не всплывает — слушаем в фазе перехвата
+    document.addEventListener('invalid', function (e) {
+      var el = e.target;
+      if (el && typeof el.setCustomValidity === 'function') el.setCustomValidity(ruMessage(el));
+    }, true);
+    function clear(e) {
+      var el = e.target;
+      if (el && typeof el.setCustomValidity === 'function') el.setCustomValidity('');
+    }
+    document.addEventListener('input', clear, true);
+    document.addEventListener('change', clear, true);
+  })();
+
   // Doctors carousel (главная) — горизонтальный скролл строки врачей
   document.querySelectorAll('[data-doctors-carousel]').forEach(function (root) {
     var track = root.querySelector('[data-dc-track]');
