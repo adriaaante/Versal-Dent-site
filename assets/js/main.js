@@ -261,6 +261,29 @@
     });
   });
 
+  // Doctors carousel (главная) — горизонтальный скролл строки врачей
+  document.querySelectorAll('[data-doctors-carousel]').forEach(function (root) {
+    var track = root.querySelector('[data-dc-track]');
+    var prev = root.querySelector('[data-dc-prev]');
+    var next = root.querySelector('[data-dc-next]');
+    if (!track) return;
+    function stepBy() {
+      var card = track.querySelector('.doctor-card');
+      var w = card ? card.getBoundingClientRect().width + 22 : 240;
+      return w * 2;
+    }
+    function update() {
+      var max = track.scrollWidth - track.clientWidth - 2;
+      if (prev) prev.disabled = track.scrollLeft <= 2;
+      if (next) next.disabled = track.scrollLeft >= max;
+    }
+    if (prev) prev.addEventListener('click', function () { track.scrollBy({ left: -stepBy(), behavior: 'smooth' }); });
+    if (next) next.addEventListener('click', function () { track.scrollBy({ left: stepBy(), behavior: 'smooth' }); });
+    track.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  });
+
   // Hero promotions carousel
   document.querySelectorAll('[data-carousel]').forEach(function (root) {
     var slides = Array.prototype.slice.call(root.querySelectorAll('.hero__slide'));

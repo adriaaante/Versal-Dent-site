@@ -367,42 +367,49 @@
     <h2 class="section__title">Наши врачи</h2>
     <p class="section__lead">Команда из 7 специалистов: ортодонт, ортопед, терапевты, хирург, гигиенист и детский стоматолог. Постоянное повышение квалификации и действующие сертификаты.</p>
 
-    <div class="doctors-grid">
-      <a href="doctors/drobkova.html" class="doctor-card">
-        <div class="doctor-card__photo"><img src="assets/img/doctors/drobkova-thumb.png" alt="Дробкова Кристина Олеговна — Главный врач · ортодонт" loading="lazy" decoding="async"></div>
-        <div class="doctor-card__body"><div class="doctor-card__name">Дробкова Кристина Олеговна</div><div class="doctor-card__role">Главный врач · ортодонт</div><div class="doctor-card__exp">Стаж с 2014 года</div></div>
-      </a>
-
-      <a href="doctors/rustamov.html" class="doctor-card">
-        <div class="doctor-card__photo"><img src="assets/img/doctors/rustamov-thumb.png" alt="Рустамов Эмиль Дилгамович — Стоматолог-ортопед" loading="lazy" decoding="async"></div>
-        <div class="doctor-card__body"><div class="doctor-card__name">Рустамов Эмиль Дилгамович</div><div class="doctor-card__role">Стоматолог-ортопед</div><div class="doctor-card__exp">Стаж от 3 лет</div></div>
-      </a>
-
-      <a href="doctors/smolyakova.html" class="doctor-card">
-        <div class="doctor-card__photo"><img src="assets/img/doctors/smolyakova-thumb.png" alt="Смолякова Радана Сергеевна — Стоматолог-терапевт" loading="lazy" decoding="async"></div>
-        <div class="doctor-card__body"><div class="doctor-card__name">Смолякова Радана Сергеевна</div><div class="doctor-card__role">Стоматолог-терапевт</div><div class="doctor-card__exp">Стаж от 2019 года</div></div>
-      </a>
-
-      <a href="doctors/" class="doctor-card">
-        <div class="doctor-card__photo"><img src="assets/img/doctors/placeholder.svg" alt="Киласония Шорена Гиулиевна — Хирург-терапевт" loading="lazy" decoding="async"></div>
-        <div class="doctor-card__body"><div class="doctor-card__name">Киласония Шорена Гиулиевна</div><div class="doctor-card__role">Хирург-терапевт</div><div class="doctor-card__exp">Хирургия и терапия</div></div>
-      </a>
-
-      <a href="doctors/" class="doctor-card">
-        <div class="doctor-card__photo"><img src="assets/img/doctors/hachatryan-thumb.png" alt="Хачатрян Карина Вачагановна — Детский стоматолог" loading="lazy" decoding="async"></div>
-        <div class="doctor-card__body"><div class="doctor-card__name">Хачатрян Карина Вачагановна</div><div class="doctor-card__role">Детский стоматолог</div><div class="doctor-card__exp">Лечим детей с 2 лет</div></div>
-      </a>
-
-        <a href="doctors/" class="doctor-card">
-        <div class="doctor-card__photo doctor-card__photo--placeholder">
-          <img src="assets/img/doctors/placeholder.svg" alt="Все врачи клиники" loading="lazy" decoding="async">
-        </div>
-        <div class="doctor-card__body">
-          <div class="doctor-card__name">Смотреть всех →</div>
-          <div class="doctor-card__role">7 в команде</div>
-          <div class="doctor-card__exp">Образование, сертификаты, отзывы</div>
-        </div>
-      </a>
+    <div class="doctors-carousel" data-doctors-carousel>
+      <button class="doctors-carousel__arrow doctors-carousel__arrow--prev" type="button" data-dc-prev aria-label="Предыдущие врачи"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <div class="doctors-carousel__track" data-dc-track>
+        <a href="doctors/drobkova.html" class="doctor-card">
+          <div class="doctor-card__photo"><img src="assets/img/doctors/drobkova-thumb.png" alt="Дробкова Кристина Олеговна — Главный врач · ортодонт" loading="lazy" decoding="async"></div>
+          <div class="doctor-card__body"><div class="doctor-card__name">Дробкова Кристина Олеговна</div><div class="doctor-card__role">Главный врач · ортодонт</div><div class="doctor-card__exp">Стаж с 2014 года</div></div>
+        </a>
+        <a href="doctors/rustamov.html" class="doctor-card">
+          <div class="doctor-card__photo"><img src="assets/img/doctors/rustamov-thumb.png" alt="Рустамов Эмиль Дилгамович — Стоматолог-ортопед" loading="lazy" decoding="async"></div>
+          <div class="doctor-card__body"><div class="doctor-card__name">Рустамов Эмиль Дилгамович</div><div class="doctor-card__role">Стоматолог-ортопед</div><div class="doctor-card__exp">Стаж от 3 лет</div></div>
+        </a>
+        <a href="doctors/smolyakova.html" class="doctor-card">
+          <div class="doctor-card__photo"><img src="assets/img/doctors/smolyakova-thumb.png" alt="Смолякова Радана Сергеевна — Стоматолог-терапевт" loading="lazy" decoding="async"></div>
+          <div class="doctor-card__body"><div class="doctor-card__name">Смолякова Радана Сергеевна</div><div class="doctor-card__role">Стоматолог-терапевт</div><div class="doctor-card__exp">Стаж от 2019 года</div></div>
+        </a>
+        <a href="doctors/kilasoniya.html" class="doctor-card">
+          <div class="doctor-card__photo"><img src="assets/img/doctors/placeholder.svg" alt="Киласония Шорена Гиулиевна — Хирург-терапевт" loading="lazy" decoding="async"></div>
+          <div class="doctor-card__body"><div class="doctor-card__name">Киласония Шорена Гиулиевна</div><div class="doctor-card__role">Хирург-терапевт</div><div class="doctor-card__exp">Хирургия и терапия</div></div>
+        </a>
+        <a href="doctors/hachatryan.html" class="doctor-card">
+          <div class="doctor-card__photo"><img src="assets/img/doctors/hachatryan-thumb.png" alt="Хачатрян Карина Вачагановна — Детский стоматолог" loading="lazy" decoding="async"></div>
+          <div class="doctor-card__body"><div class="doctor-card__name">Хачатрян Карина Вачагановна</div><div class="doctor-card__role">Детский стоматолог</div><div class="doctor-card__exp">Лечим детей с 2 лет</div></div>
+        </a>
+        <a href="doctors/savchuk.html" class="doctor-card">
+          <div class="doctor-card__photo"><img src="assets/img/doctors/savchuk-thumb.png" alt="Савчук Григорий Олегович — Врач-стоматолог" loading="lazy" decoding="async"></div>
+          <div class="doctor-card__body"><div class="doctor-card__name">Савчук Григорий Олегович</div><div class="doctor-card__role">Врач-стоматолог</div><div class="doctor-card__exp">Терапия и реставрация</div></div>
+        </a>
+        <a href="doctors/kendabaeva.html" class="doctor-card">
+          <div class="doctor-card__photo"><img src="assets/img/doctors/kendabaeva-thumb.png" alt="Кендабаева Зухро Бурхоновна — Гигиенист" loading="lazy" decoding="async"></div>
+          <div class="doctor-card__body"><div class="doctor-card__name">Кендабаева Зухро Бурхоновна</div><div class="doctor-card__role">Гигиенист</div><div class="doctor-card__exp">Профгигиена и отбеливание</div></div>
+        </a>
+        <a href="doctors/" class="doctor-card doctor-card--all">
+          <div class="doctor-card__photo doctor-card__photo--placeholder">
+            <img src="assets/img/doctors/placeholder.svg" alt="Все врачи клиники" loading="lazy" decoding="async">
+          </div>
+          <div class="doctor-card__body">
+            <div class="doctor-card__name">Смотреть всех →</div>
+            <div class="doctor-card__role">7 в команде</div>
+            <div class="doctor-card__exp">Образование, сертификаты, отзывы</div>
+          </div>
+        </a>
+      </div>
+      <button class="doctors-carousel__arrow doctors-carousel__arrow--next" type="button" data-dc-next aria-label="Следующие врачи"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
     </div>
   </div>
 </section>

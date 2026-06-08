@@ -299,6 +299,30 @@ p { margin: 0 0 1em; }
 .doctor-card__role { font-size: 13.5px; color: var(--c-primary); font-weight: 600; margin-bottom: 8px; }
 .doctor-card__exp { font-size: 13px; color: var(--c-text-muted); }
 
+/* Doctors carousel (главная) — все врачи одной строкой с горизонтальным скроллом */
+.doctors-carousel { position: relative; }
+.doctors-carousel__track {
+  display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x proximity;
+  scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
+  padding: 6px 2px 16px; scrollbar-width: thin; scrollbar-color: var(--c-border-dark) transparent;
+}
+.doctors-carousel__track > .doctor-card { flex: 0 0 clamp(210px, 23%, 248px); scroll-snap-align: start; }
+.doctors-carousel__track::-webkit-scrollbar { height: 8px; }
+.doctors-carousel__track::-webkit-scrollbar-track { background: transparent; }
+.doctors-carousel__track::-webkit-scrollbar-thumb { background: var(--c-border-dark); border-radius: 100px; }
+.doctors-carousel__arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 40px; height: 40px; border-radius: 50%;
+  background: #fff; border: 1px solid var(--c-border); box-shadow: var(--shadow);
+  display: grid; place-items: center; color: var(--c-primary); cursor: pointer;
+  z-index: 2; transition: background .2s ease, color .2s ease, opacity .2s ease;
+}
+.doctors-carousel__arrow:hover { background: var(--c-primary); color: #fff; }
+.doctors-carousel__arrow--prev { left: -14px; }
+.doctors-carousel__arrow--next { right: -14px; }
+.doctors-carousel__arrow[disabled] { opacity: 0; pointer-events: none; }
+@media (max-width: 720px) { .doctors-carousel__arrow { display: none; } }
+
 /* Reviews */
 .reviews-row { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: start; }
 .rating-card { background: #fff; border: 1px solid var(--c-border); border-radius: var(--radius); padding: 26px; }

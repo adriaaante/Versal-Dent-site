@@ -124,6 +124,46 @@
     </image:image>
   </url>
   <url>
+    <loc>https://versal-dent.ru/doctors/kilasoniya.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://versal-dent.ru/assets/img/doctors/placeholder.svg</image:loc>
+      <image:title>Киласония Шорена Гиулиевна — стоматолог-хирург, терапевт клиники «Версаль»</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://versal-dent.ru/doctors/savchuk.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://versal-dent.ru/assets/img/doctors/savchuk.png</image:loc>
+      <image:title>Савчук Григорий Олегович — врач-стоматолог клиники «Версаль»</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://versal-dent.ru/doctors/kendabaeva.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://versal-dent.ru/assets/img/doctors/kendabaeva.png</image:loc>
+      <image:title>Кендабаева Зухро Бурхоновна — стоматолог-гигиенист клиники «Версаль»</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://versal-dent.ru/doctors/hachatryan.html</loc>
+    <lastmod>2026-06-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <image:image>
+      <image:loc>https://versal-dent.ru/assets/img/doctors/hachatryan.png</image:loc>
+      <image:title>Хачатрян Карина Вачагановна — детский стоматолог клиники «Версаль»</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://versal-dent.ru/about.html</loc>
     <lastmod>2026-06-01</lastmod>
     <priority>0.7</priority>
