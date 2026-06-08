@@ -423,9 +423,9 @@ p { margin: 0 0 1em; }
 }
 
 /* Page hero (inner pages) */
-.page-hero { padding: 30px 0 50px; background: linear-gradient(135deg, #F3ECE0 0%, #FBF6EE 100%); }
+.page-hero { padding: 30px 0 50px; background: linear-gradient(135deg, #F3ECE0 0%, #FBF6EE 100%); text-align: center; }
 .page-hero h1 { margin-bottom: 12px; }
-.page-hero p { font-size: 17px; color: var(--c-text-muted); max-width: 800px; }
+.page-hero p { font-size: 17px; color: var(--c-text-muted); max-width: 800px; margin-left: auto; margin-right: auto; }
 
 /* Doctor page hero (photo + bio) — used on /doctors/*.html */
 .doctor-hero { display: grid; grid-template-columns: 300px 1fr; gap: 30px; align-items: center; }
@@ -907,10 +907,10 @@ p { margin: 0 0 1em; }
 .page-hero--steps::before { content: "1 · 2 · 3 · 4 · 5"; position: absolute; right: 28px; bottom: 6px; font-family: var(--font-head); font-weight: 700; font-size: 64px; color: rgba(194,161,78,.14); pointer-events: none; white-space: nowrap; }
 @media (max-width:720px){ .page-hero--steps::before { display:none; } }
 
-/* Индексы услуг/врачей/блога + детальные услуги — центрированный hero */
-.page-hero--center, .page-hero--service { text-align: center; }
-.page-hero--center h1::after, .page-hero--service h1::after { left: 50%; transform: translateX(-50%); }
-.page-hero--service div[style*="flex"] { justify-content: center; }
+/* Шапки разделов — единый формат: заголовок и подзаголовок по центру
+   (как section__title и hero главной), ряды кнопок в шапке — по центру. */
+.page-hero h1::after { left: 50%; transform: translateX(-50%); }
+.page-hero div[style*="flex"] { justify-content: center; }
 
 /* Акции — отдельный стиль карточек предложений */
 .promo-grid .service-card { position: relative; border-top: 3px solid var(--c-accent); background: linear-gradient(180deg,#ffffff 0%, #FBF6EE 100%); }
