@@ -225,11 +225,23 @@ API. Токен и chat_id — в `api/config.php` (**в .gitignore, в репо
 
 Деплой **с самого сервера** (Shell-клиент ISPmanager), не из контейнера.
 `scripts/deploy.sh` делает `git pull` + `rsync` из `~/Versal-Dent-site/`
-в `~/www/versal-dent.ru/`. Симлинк `~/deploy.sh → …/scripts/deploy.sh`.
+в `~/www/versal-dent.ru/`. Ярлык-симлинк `~/versal-dent.sh → …/scripts/deploy.sh`.
 ```
-~/deploy.sh --dry   # план
-~/deploy.sh         # выкатить
+~/versal-dent.sh --dry   # план
+~/versal-dent.sh         # выкатить
 ```
+
+> ⚠️ **На сервере reg.ru две клиники** (Angel + Версаль), у каждой свой
+> репозиторий/папка/ярлык — обновление одной не затрагивает другую:
+> **Angel** → `~/angel-dent.sh` (`~/www/angel-denta.ru`), **Версаль** →
+> `~/versal-dent.sh` (`~/www/versal-dent.ru`).
+>
+> ⚠️ **НЕ нажимать «Удалить CMS» / «Отвязать сайт» в панели reg.ru для
+> versal-dent.ru!** «Удалить CMS» сносит содержимое публичной папки и
+> ломает сайт («Сайт размещён некорректно»). Восстановление: убедиться,
+> что папка есть (`mkdir -p ~/www/versal-dent.ru` при необходимости) и
+> заново выкатить `~/versal-dent.sh`; при необходимости пересоздать сайт
+> в ISPmanager → Сайты с корневой директорией `www/versal-dent.ru`.
 На хостинг не попадают: `.git/`, `.github/`, `.claude/`, `scripts/`,
 `CLAUDE.md`, `README.md`, `BRAND.md`, `.gitignore`, `_originals/`,
 `api/config.php.example`. `api/config.php` живёт только на сервере.
