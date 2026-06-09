@@ -48,6 +48,10 @@ p { margin: 0 0 1em; }
 .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
 .section { padding: 64px 0; }
 .section--soft { background: var(--c-bg-soft); }
+/* Две секции одного фона подряд — не удваиваем вертикальный отступ
+   (иначе на одном цвете получается двойной пустой провал) */
+.section--soft + .section--soft,
+.section:not(.section--soft) + .section:not(.section--soft) { padding-top: 0; }
 .section__title { text-align: center; margin-bottom: 12px; }
 .section__lead { text-align: center; color: var(--c-text-muted); max-width: 720px; margin: 0 auto 40px; }
 .eyebrow { display: inline-block; color: var(--c-primary); font-weight: 600; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 12px; }
