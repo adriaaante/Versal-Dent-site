@@ -311,6 +311,33 @@
     track.addEventListener('scroll', update, { passive: true });
     window.addEventListener('resize', update);
     update();
+
+    // Перетаскивание мышью (зажал ЛКМ — тянешь). Тач остаётся родным.
+    var down = false, startX = 0, startScroll = 0, moved = false;
+    track.addEventListener('mousedown', function (e) {
+      if (e.button !== 0) return;            // только левая кнопка
+      down = true; moved = false;
+      startX = e.pageX; startScroll = track.scrollLeft;
+      track.classList.add('is-grabbing');
+      e.preventDefault();                     // не выделять текст/тащить картинку
+    });
+    document.addEventListener('mousemove', function (e) {
+      if (!down) return;
+      var dx = e.pageX - startX;
+      if (Math.abs(dx) > 4) moved = true;
+      track.scrollLeft = startScroll - dx;
+    });
+    function endDrag() {
+      if (!down) return;
+      down = false;
+      track.classList.remove('is-grabbing');
+    }
+    document.addEventListener('mouseup', endDrag);
+    document.addEventListener('mouseleave', endDrag);
+    // если это было перетаскивание — гасим клик по карточке (чтобы не уходить на страницу врача)
+    track.addEventListener('click', function (e) {
+      if (moved) { e.preventDefault(); e.stopPropagation(); }
+    }, true);
   });
 
   // Hero promotions carousel

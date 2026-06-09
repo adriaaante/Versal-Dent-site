@@ -309,7 +309,12 @@ p { margin: 0 0 1em; }
   display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x proximity;
   scroll-behavior: smooth; -webkit-overflow-scrolling: touch;
   padding: 6px 2px 16px; scrollbar-width: thin; scrollbar-color: var(--c-border-dark) transparent;
+  cursor: grab;
 }
+/* Перетаскивание мышью */
+.doctors-carousel__track.is-grabbing { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
+.doctors-carousel__track.is-grabbing a { pointer-events: none; }
+.doctors-carousel__track img { -webkit-user-drag: none; user-select: none; }
 .doctors-carousel__track > .doctor-card { flex: 0 0 clamp(210px, 23%, 248px); scroll-snap-align: start; }
 .doctors-carousel__track::-webkit-scrollbar { height: 8px; }
 .doctors-carousel__track::-webkit-scrollbar-track { background: transparent; }
