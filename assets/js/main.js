@@ -313,19 +313,25 @@
     update();
 
     // Перетаскивание мышью (зажал ЛКМ — тянешь). Тач остаётся родным.
+    // is-grabbing включаем ТОЛЬКО при реальном движении, иначе обычный
+    // клик по карточке не доходил бы до ссылки (pointer-events:none).
     var down = false, startX = 0, startScroll = 0, moved = false;
     track.addEventListener('mousedown', function (e) {
       if (e.button !== 0) return;            // только левая кнопка
       down = true; moved = false;
       startX = e.pageX; startScroll = track.scrollLeft;
-      track.classList.add('is-grabbing');
-      e.preventDefault();                     // не выделять текст/тащить картинку
     });
     document.addEventListener('mousemove', function (e) {
       if (!down) return;
       var dx = e.pageX - startX;
-      if (Math.abs(dx) > 4) moved = true;
-      track.scrollLeft = startScroll - dx;
+      if (!moved && Math.abs(dx) > 4) {       // началось перетаскивание
+        moved = true;
+        track.classList.add('is-grabbing');
+      }
+      if (moved) {
+        track.scrollLeft = startScroll - dx;
+        e.preventDefault();                   // не выделять текст при тяге
+      }
     });
     function endDrag() {
       if (!down) return;
@@ -334,7 +340,8 @@
     }
     document.addEventListener('mouseup', endDrag);
     document.addEventListener('mouseleave', endDrag);
-    // если это было перетаскивание — гасим клик по карточке (чтобы не уходить на страницу врача)
+    // если это было перетаскивание — гасим клик по карточке (чтобы не уходить
+    // на страницу врача). Чистый клик (без сдвига) проходит нормально.
     track.addEventListener('click', function (e) {
       if (moved) { e.preventDefault(); e.stopPropagation(); }
     }, true);

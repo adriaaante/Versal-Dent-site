@@ -312,7 +312,7 @@ p { margin: 0 0 1em; }
   cursor: grab;
 }
 /* Перетаскивание мышью */
-.doctors-carousel__track.is-grabbing { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; }
+.doctors-carousel__track.is-grabbing { cursor: grabbing; scroll-snap-type: none; scroll-behavior: auto; user-select: none; }
 .doctors-carousel__track.is-grabbing a { pointer-events: none; }
 .doctors-carousel__track img { -webkit-user-drag: none; user-select: none; }
 .doctors-carousel__track > .doctor-card { flex: 0 0 clamp(210px, 23%, 248px); scroll-snap-align: start; }
