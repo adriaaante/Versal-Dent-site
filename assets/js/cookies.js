@@ -65,7 +65,10 @@
   function showBanner() {
     if (!bannerEl) {
       bannerEl = buildBanner();
-      document.body.appendChild(bannerEl);
+      // В начало <body>: тогда работает CSS-правило
+      // .cookie-banner.is-visible ~ .sticky-cta (скрыть нижнюю панель,
+      // пока баннер открыт и перекрывает её).
+      document.body.insertBefore(bannerEl, document.body.firstChild);
       bannerEl.querySelector('[data-cookie-accept]').addEventListener('click', function () {
         setConsent('accepted');
         hideBanner();

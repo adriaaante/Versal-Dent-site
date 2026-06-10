@@ -26,6 +26,9 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+/* Страховка от горизонтального скролла на мобильных: любой случайно
+   «распёртый» элемент не должен сдвигать всю страницу вбок. */
+html, body { overflow-x: clip; }
 body {
   margin: 0;
   font-family: var(--font);
@@ -385,7 +388,9 @@ p { margin: 0 0 1em; }
 .faq__a { padding: 0 22px 20px; color: var(--c-text-muted); font-size: 14.5px; }
 
 /* Contact form */
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: stretch; }
+/* minmax(0,1fr) — иначе <select> с длинной опцией распирает колонку,
+   и на мобильных появляется горизонтальный скролл (форма шире экрана). */
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 36px; align-items: stretch; }
 .form { background: #fff; padding: 30px; border-radius: var(--radius); border: 1px solid var(--c-border); box-shadow: var(--shadow); }
 .form__row { margin-bottom: 14px; }
 .form__label { display: block; font-size: 13px; font-weight: 600; color: var(--c-text); margin-bottom: 6px; }
@@ -480,7 +485,9 @@ p { margin: 0 0 1em; }
 }
 
 /* Article content */
-.article { max-width: 800px; margin: 0 auto; }
+/* break-word — длинные неразрывные строки (линии подчёркиваний в бланках,
+   URL и т.п.) переносятся, а не растягивают страницу на мобильных. */
+.article { max-width: 800px; margin: 0 auto; overflow-wrap: break-word; }
 .article h2 { margin: 32px 0 14px; }
 .article h3 { margin: 24px 0 10px; }
 .article ul, .article ol { padding-left: 22px; margin-bottom: 16px; }
@@ -510,7 +517,7 @@ p { margin: 0 0 1em; }
   .services-grid { grid-template-columns: repeat(2, 1fr); }
   .doctors-grid { grid-template-columns: repeat(3, 1fr); }
   .reviews-row { grid-template-columns: 1fr; }
-  .contact-grid { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: minmax(0, 1fr); }
   .footer__grid { grid-template-columns: 1fr 1fr; gap: 24px; }
 }
 @media (max-width: 720px) {
@@ -531,6 +538,18 @@ p { margin: 0 0 1em; }
   .cta-banner__inner { flex-direction: column; text-align: center; }
   .sticky-cta { display: flex; }
   body { padding-bottom: 76px; }
+}
+/* Сверхузкие экраны (320–360px): компактная шапка, иначе лого + телефон +
+   бургер шире экрана и страницу можно сдвинуть вбок. */
+@media (max-width: 359px) {
+  .container { padding: 0 16px; }
+  .header__inner { gap: 10px; }
+  .logo { gap: 8px; font-size: 17px; }
+  .logo__mark { width: 38px; height: 38px; }
+  .logo__name small { display: none; }
+  .header__phone { font-size: 13.5px; }
+  .header__cta { gap: 6px; }
+  .burger { padding: 4px; }
 }
 
 /* ============================================================
@@ -821,9 +840,12 @@ p { margin: 0 0 1em; }
     padding: 7px 10px;
     font-size: 12px;
   }
-  /* Avoid overlap with sticky-cta mobile bar */
-  .cookie-banner.is-visible ~ .sticky-cta { bottom: 0; }
 }
+/* Пока куки-баннер открыт, он перекрывает нижнюю панель CTA —
+   прячем её, чтобы не было «слоёного пирога» из кнопок. */
+.cookie-banner.is-visible ~ .sticky-cta,
+.cookie-banner.is-visible ~ .fab { opacity: 0; pointer-events: none; }
+.sticky-cta { transition: opacity .3s ease; }
 
 /* ── Пометка «Акция» рядом с ценой в прайс-таблицах ── */
 .badge-promo { display: inline-block; background: var(--c-accent); color: #2C2620; font-weight: 700; font-size: 11px; letter-spacing: .04em; text-transform: uppercase; padding: 2px 9px; border-radius: 100px; margin-left: 8px; vertical-align: middle; white-space: nowrap; }
@@ -913,12 +935,22 @@ p { margin: 0 0 1em; }
 .promo-strip__inner { display: flex; align-items: center; justify-content: center; gap: 16px 28px; flex-wrap: wrap; padding: 15px 0; text-align: center; }
 .promo-strip__text { font-size: 16px; }
 .promo-strip__text b { color: var(--c-accent); font-size: 20px; font-weight: 800; }
-.promo-strip__text s { opacity: .6; margin-left: 6px; font-size: 14px; }
+.promo-strip__text s { opacity: .6; margin-left: 6px; font-size: 14px; white-space: nowrap; }
+.promo-strip__text b { white-space: nowrap; }
 .promo-strip__tag { display: inline-block; background: var(--c-accent); color: #2C2620; font-weight: 700; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; padding: 3px 10px; border-radius: 100px; margin-right: 8px; vertical-align: middle; }
 .promo-strip__actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 .promo-strip .btn--ghost { color: #fff; border-color: rgba(255,255,255,.5); }
 .promo-strip .btn--ghost:hover { background: #fff; color: var(--c-primary); }
-@media (max-width: 600px){ .promo-strip__inner{ padding: 14px 0; } }
+/* Мобильная промо-полоса: бейдж — отдельной строкой по центру, текст по
+   центру, кнопки одинаковой ширины на всю строку — без «рваных» краёв. */
+@media (max-width: 600px){
+  .promo-strip__inner{ flex-direction: column; align-items: center; gap: 12px; padding: 20px 0; }
+  .promo-strip__tag{ display: block; width: max-content; margin: 0 auto 10px; }
+  .promo-strip__text{ font-size: 15px; line-height: 1.45; }
+  .promo-strip__text b{ font-size: 18px; }
+  .promo-strip__actions{ width: 100%; flex-direction: column; gap: 10px; }
+  .promo-strip__actions .btn{ width: 100%; }
+}
 
 
 /* ============================================================
