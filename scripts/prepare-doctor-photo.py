@@ -129,10 +129,16 @@ def prepare(src: Path, slug: str, zoom: float, top_frac: float) -> None:
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     full_path = OUT_DIR / f"{slug}.png"
     thumb_path = OUT_DIR / f"{slug}-thumb.png"
-    canvas.resize(FULL, Image.LANCZOS).save(full_path, optimize=True)
-    canvas.resize(THUMB, Image.LANCZOS).save(thumb_path, optimize=True)
-    print(f"        {full_path}")
-    print(f"        {thumb_path}")
+    full = canvas.resize(FULL, Image.LANCZOS)
+    thumb = canvas.resize(THUMB, Image.LANCZOS)
+    full.save(full_path, optimize=True)
+    thumb.save(thumb_path, optimize=True)
+    # WebP — то, на что ссылаются <img> на страницах (в ~15 раз легче PNG).
+    # PNG остаётся для og:image (совместимость с мессенджерами/соцсетями).
+    full.convert("RGB").save(OUT_DIR / f"{slug}.webp", "WEBP", quality=82, method=6)
+    thumb.convert("RGB").save(OUT_DIR / f"{slug}-thumb.webp", "WEBP", quality=85, method=6)
+    print(f"        {full_path} (+ .webp)")
+    print(f"        {thumb_path} (+ .webp)")
 
 
 def main(argv: list[str]) -> int:

@@ -1,0 +1,11 @@
+# Versal-Dent — кеширование статики.
+# Хостинг reg.ru сам ставит Cache-Control для png/jpg/css/js (45 дней),
+# но НЕ для webp/svg/woff2 — браузер перекачивал картинки при каждом
+# переходе между разделами. Дополняем недостающие типы.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 45 days"
+  ExpiresByType image/svg+xml "access plus 45 days"
+  ExpiresByType image/x-icon "access plus 45 days"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
