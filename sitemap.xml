@@ -7,24 +7,32 @@
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
     <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/placeholder.svg</image:loc>
-      <image:title>[ФИО врача — главный врач] — главный врач, стоматолог-ортодонт</image:title>
+      <image:loc>https://versal-dent.ru/assets/img/doctors/drobkova.png</image:loc>
+      <image:title>Дробкова Кристина Олеговна — главный врач клиники «Версаль», стоматолог-ортодонт</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://versal-dent.ru/assets/img/doctors/rustamov.png</image:loc>
+      <image:title>Рустамов Эмиль Дилгамович — стоматолог-ортопед клиники «Версаль»</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://versal-dent.ru/assets/img/doctors/smolyakova.png</image:loc>
+      <image:title>Смолякова Радана Сергеевна — стоматолог-терапевт, эндодонтист клиники «Версаль»</image:title>
     </image:image>
     <image:image>
       <image:loc>https://versal-dent.ru/assets/img/doctors/placeholder.svg</image:loc>
-      <image:title>[ФИО врача — ген. директор] — стоматолог-хирург, имплантолог</image:title>
+      <image:title>Киласония Шорена Гиулиевна — стоматолог-хирург, терапевт клиники «Версаль»</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/placeholder.svg</image:loc>
-      <image:title>[ФИО врача — хирург-имплантолог] — стоматолог-хирург, имплантолог</image:title>
+      <image:loc>https://versal-dent.ru/assets/img/doctors/hachatryan.png</image:loc>
+      <image:title>Хачатрян Карина Вачагановна — детский стоматолог клиники «Версаль»</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/placeholder.svg</image:loc>
-      <image:title>[ФИО врача — ортопед] — стоматолог-ортопед</image:title>
+      <image:loc>https://versal-dent.ru/assets/img/doctors/savchuk.png</image:loc>
+      <image:title>Савчук Григорий Олегович — стоматолог-хирург, имплантолог клиники «Версаль»</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/placeholder.svg</image:loc>
-      <image:title>[ФИО врача — терапевт] — стоматолог-терапевт</image:title>
+      <image:loc>https://versal-dent.ru/assets/img/doctors/kendabaeva.png</image:loc>
+      <image:title>Кендабаева Зухро Бурхоновна — стоматолог-гигиенист клиники «Версаль»</image:title>
     </image:image>
   </url>
   <url>
@@ -99,8 +107,8 @@
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
     <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/placeholder.svg</image:loc>
-      <image:title>[ФИО врача — главный врач] — главный врач клиники «Версаль», стоматолог-ортодонт</image:title>
+      <image:loc>https://versal-dent.ru/assets/img/doctors/drobkova.png</image:loc>
+      <image:title>Дробкова Кристина Олеговна — главный врач клиники «Версаль», стоматолог-ортодонт</image:title>
     </image:image>
   </url>
   <url>
@@ -109,8 +117,8 @@
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
     <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/placeholder.svg</image:loc>
-      <image:title>[ФИО врача — ортопед] — стоматолог-ортопед</image:title>
+      <image:loc>https://versal-dent.ru/assets/img/doctors/rustamov.png</image:loc>
+      <image:title>Рустамов Эмиль Дилгамович — стоматолог-ортопед клиники «Версаль»</image:title>
     </image:image>
   </url>
   <url>
@@ -119,8 +127,8 @@
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
     <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/placeholder.svg</image:loc>
-      <image:title>[ФИО врача — терапевт] — стоматолог-терапевт, эндодонтист</image:title>
+      <image:loc>https://versal-dent.ru/assets/img/doctors/smolyakova.png</image:loc>
+      <image:title>Смолякова Радана Сергеевна — стоматолог-терапевт, эндодонтист клиники «Версаль»</image:title>
     </image:image>
   </url>
   <url>
