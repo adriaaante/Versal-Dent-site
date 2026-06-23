@@ -762,8 +762,8 @@ window.AD_PORTFOLIO = {
       description: 'Снятие наддёсневых и поддёсневых отложений ультразвуком, Air Flow и полировка. Возвращён естественный цвет и гладкость зубов.',
       services: ['Гигиена', 'Ультразвук', 'Air Flow'],
       date: '01.2026',
-      before: 'placeholder',
-      after: 'placeholder',
+      before: '../assets/img/portfolio/kendabaeva-hygiene-before.webp',
+      after: '../assets/img/portfolio/kendabaeva-hygiene-after.webp',
       details: {
         problem: 'Женщина 31 года обратилась с жалобами на налёт, шероховатость зубов и периодическую кровоточивость дёсен при чистке. Профгигиену не проходила более двух лет.',
         diagnosis: 'Осмотр выявил обильные мягкие отложения и зубной камень в придёсневой области, особенно с язычной стороны нижних резцов, и признаки катарального гингивита (воспаление дёсен).',
@@ -810,8 +810,8 @@ window.AD_PORTFOLIO = {
       description: 'Удаление стойкого тёмного налёта от кофе и курения методом Air Flow с восстановлением естественного цвета эмали.',
       services: ['Гигиена', 'Air Flow', 'Пигментированный налёт'],
       date: '11.2025',
-      before: 'placeholder',
-      after: 'placeholder',
+      before: '../assets/img/portfolio/kendabaeva-pigment-before.webp',
+      after: '../assets/img/portfolio/kendabaeva-pigment-after.webp',
       details: {
         problem: 'Мужчина 44 лет, много кофе и курит, обратился из-за стойкого тёмного налёта на зубах, особенно с внутренней стороны и в придёсневой области.',
         diagnosis: 'Выявлен плотный пигментированный налёт и умеренные минерализованные отложения. Эмаль без кариозных поражений, дёсны слегка воспалены в зоне отложений.',
