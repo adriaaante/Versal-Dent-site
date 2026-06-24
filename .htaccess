@@ -9,3 +9,54 @@
   ExpiresByType image/x-icon "access plus 45 days"
   ExpiresByType font/woff2 "access plus 1 year"
 </IfModule>
+
+# 301-редиректы со старых (Tilda) URL versal-dent.ru на новый статичный сайт.
+# Файл деплоится из репозитория (переживает rsync --delete). Цель: старые
+# адреса из индекса Яндекса не отдают 404 (теряя накопленный вес), а постоянным
+# редиректом переливают сигнал на соответствующие новые /services/*.html,
+# /doctors/*.html и т.д., и быстрее заменяются в выдаче.
+# Порядок ВАЖЕН: частные правила выше общих (mod_alias применяет первое
+# совпавшее). Слаги — именно версалевские (например implantacziya через «cz»).
+<IfModule mod_alias.c>
+    # --- старый раздел /uslugi/* → профильные услуги (частное выше общего) ---
+    RedirectMatch 301 ^/uslugi/implantacziya(/.*)?$          /services/implantaciya.html
+    RedirectMatch 301 ^/uslugi/implantaciya(/.*)?$           /services/implantaciya.html
+    RedirectMatch 301 ^/uslugi/ortodontiya(/.*)?$            /services/ortodontiya.html
+    RedirectMatch 301 ^/uslugi/breket(/.*)?$                 /services/ortodontiya.html
+    RedirectMatch 301 ^/uslugi/ortopediya(/.*)?$             /services/protezirovanie.html
+    RedirectMatch 301 ^/uslugi/protezirovanie(/.*)?$         /services/protezirovanie.html
+    RedirectMatch 301 ^/uslugi/parodontologiya(/.*)?$        /services/parodontologiya.html
+    RedirectMatch 301 ^/uslugi/terapiya(/.*)?$               /services/terapiya.html
+    RedirectMatch 301 ^/uslugi/detskaya-stomatologiya(/.*)?$ /services/detskaya.html
+    RedirectMatch 301 ^/uslugi/detskaya(/.*)?$               /services/detskaya.html
+    RedirectMatch 301 ^/uslugi/hirurgiya(/.*)?$              /services/hirurgiya.html
+    RedirectMatch 301 ^/uslugi/profgigiena(/.*)?$            /services/gigiena.html
+    RedirectMatch 301 ^/uslugi/gigiena(/.*)?$                /services/gigiena.html
+    RedirectMatch 301 ^/uslugi/viniry(/.*)?$                 /services/viniry.html
+    # общий «хвост» для остальных старых /uslugi/* → витрина услуг
+    RedirectMatch 301 ^/uslugi(/.*)?$                        /services/
+
+    # --- старые карточки врачей /vrachi/<фио>/ → новые /doctors/<slug>.html ---
+    RedirectMatch 301 ^/vrachi/drobkova(-.*)?/?$             /doctors/drobkova.html
+    RedirectMatch 301 ^/vrachi/rustamov(-.*)?/?$             /doctors/rustamov.html
+    RedirectMatch 301 ^/vrachi/smolyakova(-.*)?/?$           /doctors/smolyakova.html
+    RedirectMatch 301 ^/vrachi/kilasoniya(-.*)?/?$           /doctors/kilasoniya.html
+    RedirectMatch 301 ^/vrachi/savchuk(-.*)?/?$              /doctors/savchuk.html
+    RedirectMatch 301 ^/vrachi/kendabaeva(-.*)?/?$           /doctors/kendabaeva.html
+    RedirectMatch 301 ^/vrachi/hachatryan(-.*)?/?$           /doctors/hachatryan.html
+    # общий «хвост» для остальных старых /vrachi/* → витрина врачей
+    RedirectMatch 301 ^/vrachi(/.*)?$                        /doctors/
+    RedirectMatch 301 ^/spisok-personala/?$                  /doctors/
+
+    # --- прочие корневые разделы старой Tilda ---
+    RedirectMatch 301 ^/o-klinike/?$                         /about.html
+    RedirectMatch 301 ^/kontakty/?$                          /contacts.html
+    RedirectMatch 301 ^/aktsii/?$                            /promotions.html
+    RedirectMatch 301 ^/faq/?$                               /
+
+    # --- старый блог Tilda (/tpost/*), если был, → новый блог ---
+    RedirectMatch 301 ^/tpost(/.*)?$                         /blog/
+</IfModule>
+
+# Брендовая страница 404 вместо дефолтной reg.ru.
+ErrorDocument 404 /404.html
