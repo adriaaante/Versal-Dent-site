@@ -4,8 +4,8 @@
   <url>
     <loc>https://versal-dent.ru/</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>1.0</priority>
     <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
     <image:image>
       <image:loc>https://versal-dent.ru/assets/img/doctors/drobkova.png</image:loc>
       <image:title>Дробкова Кристина Олеговна — главный врач клиники «Версаль», стоматолог-ортодонт</image:title>
@@ -17,10 +17,6 @@
     <image:image>
       <image:loc>https://versal-dent.ru/assets/img/doctors/smolyakova.png</image:loc>
       <image:title>Смолякова Радана Сергеевна — стоматолог-терапевт, эндодонтист клиники «Версаль»</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/placeholder.svg</image:loc>
-      <image:title>Киласония Шорена Гиулиевна — стоматолог-хирург, терапевт клиники «Версаль»</image:title>
     </image:image>
     <image:image>
       <image:loc>https://versal-dent.ru/assets/img/doctors/hachatryan.png</image:loc>
@@ -38,74 +34,74 @@
   <url>
     <loc>https://versal-dent.ru/services/</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.9</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/services/implantaciya.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.9</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/services/ortodontiya.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.9</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/services/terapiya.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.8</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/services/hirurgiya.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.8</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/services/detskaya.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.8</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/services/protezirovanie.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.8</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/services/viniry.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.8</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/services/gigiena.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/services/parodontologiya.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/doctors/</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.8</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/doctors/drobkova.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://versal-dent.ru/assets/img/doctors/drobkova.png</image:loc>
       <image:title>Дробкова Кристина Олеговна — главный врач клиники «Версаль», стоматолог-ортодонт</image:title>
@@ -114,8 +110,8 @@
   <url>
     <loc>https://versal-dent.ru/doctors/rustamov.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://versal-dent.ru/assets/img/doctors/rustamov.png</image:loc>
       <image:title>Рустамов Эмиль Дилгамович — стоматолог-ортопед клиники «Версаль»</image:title>
@@ -124,8 +120,8 @@
   <url>
     <loc>https://versal-dent.ru/doctors/smolyakova.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://versal-dent.ru/assets/img/doctors/smolyakova.png</image:loc>
       <image:title>Смолякова Радана Сергеевна — стоматолог-терапевт, эндодонтист клиники «Версаль»</image:title>
@@ -134,18 +130,14 @@
   <url>
     <loc>https://versal-dent.ru/doctors/kilasoniya.html</loc>
     <lastmod>2026-06-08</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
-    <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/placeholder.svg</image:loc>
-      <image:title>Киласония Шорена Гиулиевна — стоматолог-хирург, терапевт клиники «Версаль»</image:title>
-    </image:image>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/doctors/savchuk.html</loc>
     <lastmod>2026-06-08</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://versal-dent.ru/assets/img/doctors/savchuk.png</image:loc>
       <image:title>Савчук Григорий Олегович — стоматолог-хирург, имплантолог клиники «Версаль»</image:title>
@@ -154,8 +146,8 @@
   <url>
     <loc>https://versal-dent.ru/doctors/kendabaeva.html</loc>
     <lastmod>2026-06-08</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://versal-dent.ru/assets/img/doctors/kendabaeva.png</image:loc>
       <image:title>Кендабаева Зухро Бурхоновна — стоматолог-гигиенист клиники «Версаль»</image:title>
@@ -164,8 +156,8 @@
   <url>
     <loc>https://versal-dent.ru/doctors/hachatryan.html</loc>
     <lastmod>2026-06-08</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
     <image:image>
       <image:loc>https://versal-dent.ru/assets/img/doctors/hachatryan.png</image:loc>
       <image:title>Хачатрян Карина Вачагановна — детский стоматолог клиники «Версаль»</image:title>
@@ -174,98 +166,98 @@
   <url>
     <loc>https://versal-dent.ru/about.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/promotions.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.8</priority>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/reviews.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.7</priority>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/contacts.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/legal.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.5</priority>
     <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/privacy.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.4</priority>
     <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/oferta.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.4</priority>
     <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/consent.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.4</priority>
     <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/cookies.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.4</priority>
     <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/blog/</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.8</priority>
     <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/blog/implantaciya-ili-most.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/blog/kak-vybrat-stomatologa.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/blog/uxod-posle-implantacii.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/blog/viniry-ili-koronki.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/blog/krovotochat-desny.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/blog/zub-mudrosti-udalyat-ili-lechit.html</loc>
     <lastmod>2026-06-01</lastmod>
-    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://versal-dent.ru/ceny.html</loc>
