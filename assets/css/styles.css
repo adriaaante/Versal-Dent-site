@@ -591,6 +591,7 @@ p { margin: 0 0 1em; }
 .pf-lightbox__images { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 18px; }
 .pf-lightbox__images figure { margin: 0; position: relative; }
 .pf-lightbox__images img { width: 100%; border-radius: var(--radius-sm); display: block; }
+.pf-lightbox__images figure:not(.is-placeholder) img { cursor: zoom-in; }
 .pf-lightbox__images figcaption { position: absolute; left: 12px; top: 12px; background: var(--c-primary); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; }
 .pf-lightbox__images figure:first-child figcaption { background: rgba(44,38,32,.85); }
 .pf-lightbox h3 { margin: 0 0 8px; font-size: 22px; line-height: 1.25; }

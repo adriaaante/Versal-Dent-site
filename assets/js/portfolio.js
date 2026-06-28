@@ -1303,6 +1303,12 @@ window.AD_PORTFOLIO = {
           closeShotViewer(lb);
           return;
         }
+        // Клик по основному фото «До»/«После» — открыть крупно в просмотрщике
+        var mainImg = e.target.closest('[data-pf-lb-before], [data-pf-lb-after]');
+        if (mainImg && mainImg.getAttribute('src')) {
+          openShotViewer(lb, mainImg.getAttribute('src'), mainImg.hasAttribute('data-pf-lb-before') ? 'До лечения' : 'После лечения');
+          return;
+        }
         // Клик по миниатюре доп. фото
         var shot = e.target.closest('.pf-shot');
         if (shot) {
