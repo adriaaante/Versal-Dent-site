@@ -413,27 +413,32 @@ window.AD_PORTFOLIO = {
       }
     },
     {
-      title: 'Мостовидный протез из диоксида циркония',
-      description: 'Восстановление значительного дефекта зубного ряда несъёмным мостом из диоксида циркония. Возвращены эстетика улыбки и жевательная функция.',
-      services: ['Мост Zr', 'Протезирование', 'Эстетика'],
+      title: 'Несъёмный протез на имплантах — восстановление зубного ряда',
+      description: 'Полное восстановление зубного ряда несъёмной конструкцией с опорой на импланты. Возвращены эстетика улыбки и жевательная функция.',
+      services: ['Импланты', 'Несъёмный протез', 'Эстетика'],
       date: '12.2024',
       before: '../assets/img/portfolio/rustamov-prosthetics-before.webp',
       after: '../assets/img/portfolio/rustamov-prosthetics-after.webp',
+      extra: [
+        { src: '../assets/img/portfolio/rustamov-prosthetics-detail-before.webp', caption: 'Состояние зубов до лечения' },
+        { src: '../assets/img/portfolio/rustamov-prosthetics-implants.webp', caption: 'Этап лечения: установленные импланты', graphic: true },
+        { src: '../assets/img/portfolio/rustamov-prosthetics-detail-after.webp', caption: 'Результат: новая улыбка крупным планом' }
+      ],
       details: {
-        problem: 'Пациентка обратилась с жалобами на отсутствие и сильную стираемость зубов: было трудно пережёвывать пищу и улыбаться, снизилась высота нижней трети лица, пострадала эстетика.',
-        diagnosis: 'Осмотр и КЛКТ показали значительную потерю и разрушение зубов при сохранных опорных зубах, пригодных для несъёмного протезирования. Прикус снижен из-за стираемости, ткани пародонта в опорной зоне стабильны.',
-        plan: 'Согласовано несъёмное протезирование мостовидной конструкцией из диоксида циркония с восстановлением высоты прикуса и эстетики улыбки. Цифровой протокол: сканирование, моделирование будущей улыбки (DSD), фрезеровка, индивидуальная керамическая облицовка в зоне улыбки.',
+        problem: 'Пациентка обратилась с отсутствием и сильной стираемостью зубов: было трудно пережёвывать пищу и улыбаться, снизилась высота нижней трети лица, пострадала эстетика.',
+        diagnosis: 'Осмотр и КЛКТ показали значительную потерю зубов и недостаточность собственных опор для протезирования. Костной ткани достаточно для установки имплантов как опор под несъёмную конструкцию.',
+        plan: 'Согласовано восстановление зубного ряда несъёмным протезом с опорой на импланты. Цифровой протокол: планирование по КЛКТ, навигационная установка имплантов, изготовление несъёмной конструкции после остеоинтеграции и индивидуальная эстетика в зоне улыбки.',
         steps: [
-          'Диагностика, КЛКТ, цифровое сканирование 3Shape и планирование улыбки (Digital Smile Design)',
-          'Подготовка и препарирование опорных зубов под несъёмную конструкцию',
-          'Фиксация временных протезов для адаптации к новой высоте прикуса и эстетике',
-          'CAD-моделирование и фрезеровка каркаса из диоксида циркония',
-          'Индивидуальная керамическая облицовка в зоне улыбки, примерка',
-          'Проверка прикуса и контактов, фиксация постоянной конструкции на цемент'
+          'Диагностика, КЛКТ, цифровое планирование положения имплантов и будущей улыбки (DSD)',
+          'Установка имплантов по хирургическому навигационному шаблону, период остеоинтеграции',
+          'Установка формирователей десны, формирование контура мягких тканей',
+          'Цифровое сканирование 3Shape, изготовление несъёмной конструкции',
+          'Индивидуальная эстетика в зоне улыбки, примерка и проверка прикуса',
+          'Фиксация постоянной несъёмной конструкции на имплантах'
         ],
-        materials: 'Диоксид циркония Katana, керамика IPS e.max Ceram для облицовки, временные конструкции из PMMA, цемент RelyX U200, сканер 3Shape Trios.',
+        materials: 'Дентальные импланты, мультиюнит-абатменты, каркас из диоксида циркония с керамической облицовкой, временные конструкции из PMMA, сканер 3Shape Trios.',
         result: 'Полностью восстановлены эстетика улыбки и жевательная функция, нормализована высота прикуса. Пациентка вернулась к привычному питанию и перестала стесняться улыбки.',
-        warranty: '5 лет гарантии на ортопедическую конструкцию при соблюдении гигиены и контрольных осмотрах раз в полгода.'
+        warranty: 'Гарантия на импланты по договору и на ортопедическую конструкцию при плановых осмотрах и профессиональной гигиене раз в полгода.'
       }
     },
     {
@@ -1132,6 +1137,41 @@ window.AD_PORTFOLIO = {
       }
     }
 
+    // Галерея «Ещё фото работы» (доп. снимки; клинические — за согласием)
+    var gallery = lb.querySelector('[data-pf-lb-gallery]');
+    var shotsWrap = lb.querySelector('[data-pf-lb-shots]');
+    if (gallery && shotsWrap) {
+      var extra = Array.isArray(item.extra) ? item.extra : [];
+      if (extra.length) {
+        shotsWrap.innerHTML = extra.map(function (p) {
+          var cap = p.caption ? escapeHTML(p.caption) : '';
+          if (p.graphic) {
+            // Графичный кадр: src подгружается ТОЛЬКО после согласия (data-src)
+            return '<button type="button" class="pf-shot pf-shot--graphic" data-src="' + escapeHTML(p.src) + '" data-cap="' + cap + '" aria-label="Клинический кадр. Нажмите, чтобы показать">' +
+                '<img alt="">' +
+                '<span class="pf-shot__veil">' +
+                  '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>' +
+                  '<span class="pf-shot__veil-t">Клинический кадр</span>' +
+                  '<span class="pf-shot__veil-s">Может содержать кровь.<br>Нажмите, чтобы показать.</span>' +
+                '</span>' +
+                (cap ? '<span class="pf-shot__cap">' + cap + '</span>' : '') +
+              '</button>';
+          }
+          return '<button type="button" class="pf-shot" data-src="' + escapeHTML(p.src) + '" data-cap="' + cap + '">' +
+              '<img loading="lazy" src="' + escapeHTML(p.src) + '" alt="' + cap + '">' +
+              (cap ? '<span class="pf-shot__cap">' + cap + '</span>' : '') +
+            '</button>';
+        }).join('');
+        gallery.hidden = false;
+      } else {
+        shotsWrap.innerHTML = '';
+        gallery.hidden = true;
+      }
+    }
+    // Просмотрщик кадра — закрыт при открытии новой работы
+    var sv = lb.querySelector('[data-pf-shot-viewer]');
+    if (sv) sv.hidden = true;
+
     // CTA-блок отображается всегда
     var cta = lb.querySelector('[data-pf-lb-cta]');
     if (cta) cta.hidden = false;
@@ -1148,8 +1188,27 @@ window.AD_PORTFOLIO = {
   function closeLightbox() {
     var lb = document.querySelector('[data-pf-lightbox]');
     if (!lb) return;
+    closeShotViewer(lb);
     lb.classList.remove('is-open');
     document.body.style.overflow = '';
+  }
+
+  function openShotViewer(lb, src, cap) {
+    var v = lb.querySelector('[data-pf-shot-viewer]');
+    if (!v) return;
+    var img = v.querySelector('[data-pf-shot-img]');
+    var c = v.querySelector('[data-pf-shot-cap]');
+    if (img) img.src = src || '';
+    if (c) { c.textContent = cap || ''; c.hidden = !cap; }
+    v.hidden = false;
+  }
+
+  function closeShotViewer(lb) {
+    var v = lb && lb.querySelector('[data-pf-shot-viewer]');
+    if (!v) return;
+    v.hidden = true;
+    var img = v.querySelector('[data-pf-shot-img]');
+    if (img) img.removeAttribute('src');
   }
 
   function mount() {
@@ -1176,6 +1235,12 @@ window.AD_PORTFOLIO = {
               '<figcaption>После</figcaption>' +
             '</figure>' +
           '</div>' +
+
+          '<div class="pf-lightbox__gallery" data-pf-lb-gallery hidden>' +
+            '<h4 class="pf-lightbox__h">Ещё фото работы</h4>' +
+            '<div class="pf-shots" data-pf-lb-shots></div>' +
+          '</div>' +
+
           '<header class="pf-lightbox__header">' +
             '<h3 data-pf-lb-title></h3>' +
             '<p class="pf-lightbox__desc" data-pf-lb-desc></p>' +
@@ -1223,15 +1288,45 @@ window.AD_PORTFOLIO = {
             '<a href="#" class="btn btn--primary btn--lg" data-modal-open>Записаться на консультацию</a>' +
           '</div>' +
 
+        '</div>' +
+        '<div class="pf-shot-viewer" data-pf-shot-viewer hidden>' +
+          '<button class="pf-shot-viewer__close" data-pf-shot-close aria-label="Закрыть">×</button>' +
+          '<figure>' +
+            '<img data-pf-shot-img alt="">' +
+            '<figcaption data-pf-shot-cap hidden></figcaption>' +
+          '</figure>' +
         '</div>';
       document.body.appendChild(lb);
       lb.addEventListener('click', function (e) {
+        // Закрыть просмотрщик кадра (по фону или крестику) — лайтбокс при этом остаётся открытым
+        if (e.target.closest('[data-pf-shot-close]') || e.target.hasAttribute('data-pf-shot-viewer')) {
+          closeShotViewer(lb);
+          return;
+        }
+        // Клик по миниатюре доп. фото
+        var shot = e.target.closest('.pf-shot');
+        if (shot) {
+          if (shot.classList.contains('pf-shot--graphic') && !shot.classList.contains('is-revealed')) {
+            // Первый клик по клиническому кадру — подгрузить и показать (согласие пользователя)
+            var gimg = shot.querySelector('img');
+            if (gimg && !gimg.getAttribute('src')) gimg.src = shot.getAttribute('data-src');
+            shot.classList.add('is-revealed');
+            return;
+          }
+          // Открыть кадр крупно
+          openShotViewer(lb, shot.getAttribute('data-src'), shot.getAttribute('data-cap'));
+          return;
+        }
         if (e.target === lb || e.target.closest('[data-pf-lb-close]')) closeLightbox();
         // Закрывать лайтбокс при клике на CTA — пусть модалка записи откроется поверх главной страницы корректно
         if (e.target.closest('[data-modal-open]')) closeLightbox();
       });
       document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeLightbox();
+        if (e.key !== 'Escape') return;
+        var lb2 = document.querySelector('[data-pf-lightbox]');
+        var v = lb2 && lb2.querySelector('[data-pf-shot-viewer]');
+        if (v && !v.hidden) { closeShotViewer(lb2); return; }
+        closeLightbox();
       });
     }
 

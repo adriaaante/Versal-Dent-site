@@ -611,6 +611,27 @@ p { margin: 0 0 1em; }
 .pf-lightbox__h::before { content: ""; display: inline-block; width: 6px; height: 18px; background: var(--c-primary); border-radius: 3px; }
 .pf-lightbox__section p { font-size: 15px; line-height: 1.6; color: var(--c-text); }
 
+/* Галерея «Ещё фото работы» + просмотрщик кадра */
+.pf-lightbox__gallery { margin: 2px 0 18px; }
+.pf-shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.pf-shot { position: relative; display: block; width: 100%; padding: 0; border: 0; background: none; cursor: pointer; border-radius: var(--radius-sm); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: var(--shadow); }
+.pf-shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pf-shot__cap { position: absolute; left: 0; right: 0; bottom: 0; padding: 18px 9px 7px; font-size: 12px; line-height: 1.25; color: #fff; text-align: left; background: linear-gradient(to top, rgba(0,0,0,.62), rgba(0,0,0,0)); }
+.pf-shot--graphic img { filter: blur(16px); transform: scale(1.08); }
+.pf-shot--graphic.is-revealed img { filter: none; transform: none; transition: filter .3s ease; }
+.pf-shot__veil { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; text-align: center; color: #fff; background: rgba(44,38,32,.68); padding: 8px; }
+.pf-shot--graphic.is-revealed .pf-shot__veil { display: none; }
+.pf-shot__veil-t { font-weight: 700; font-size: 13px; }
+.pf-shot__veil-s { font-size: 11px; opacity: .92; line-height: 1.25; }
+.pf-shot-viewer { position: fixed; inset: 0; z-index: 120; background: rgba(20,16,12,.93); display: flex; align-items: center; justify-content: center; padding: 24px; }
+.pf-shot-viewer[hidden] { display: none; }
+.pf-shot-viewer figure { margin: 0; display: flex; flex-direction: column; gap: 10px; max-width: min(1100px, 94vw); }
+.pf-shot-viewer img { max-width: 100%; max-height: 84vh; object-fit: contain; border-radius: var(--radius-sm); display: block; margin: 0 auto; }
+.pf-shot-viewer figcaption { color: #fff; text-align: center; font-size: 14px; opacity: .92; }
+.pf-shot-viewer figcaption[hidden] { display: none; }
+.pf-shot-viewer__close { position: fixed; top: 16px; right: 20px; width: 44px; height: 44px; border-radius: 50%; border: 0; background: rgba(255,255,255,.16); color: #fff; font-size: 26px; line-height: 1; cursor: pointer; }
+@media (max-width: 560px) { .pf-shots { grid-template-columns: repeat(2, 1fr); } }
+
 /* Этапы лечения — нумерованный список с круглыми бейджами */
 .pf-lightbox__steps { list-style: none; counter-reset: pf-step; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
 .pf-lightbox__step { counter-increment: pf-step; display: flex; align-items: flex-start; gap: 14px; background: var(--c-primary-50); border-radius: var(--radius-sm); padding: 12px 14px 12px 12px; }
