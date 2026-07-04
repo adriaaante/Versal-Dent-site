@@ -19,9 +19,12 @@ SITE = "https://versal-dent.ru"
 
 
 def _token():
-    t = os.environ.get("YANDEX_WEBMASTER_TOKEN", "").strip()
+    # Версаль — отдельный аккаунт Яндекса (свой токен). Приоритет —
+    # YANDEX_WEBMASTER_TOKEN_VERSAL, чтобы не путать с токеном Angel.
+    t = (os.environ.get("YANDEX_WEBMASTER_TOKEN_VERSAL")
+         or os.environ.get("YANDEX_WEBMASTER_TOKEN") or "").strip()
     if not t:
-        sys.exit("Нет токена: задайте YANDEX_WEBMASTER_TOKEN (см. scripts/README-yandex-api.md).")
+        sys.exit("Нет токена: задайте YANDEX_WEBMASTER_TOKEN_VERSAL (см. scripts/README-yandex-api.md).")
     return t
 
 

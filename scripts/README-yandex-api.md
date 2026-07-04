@@ -20,7 +20,7 @@
 
 ## Запуск
 ```
-YANDEX_WEBMASTER_TOKEN=xxxx python3 scripts/yandex-webmaster.py
+YANDEX_WEBMASTER_TOKEN_VERSAL=xxxx python3 scripts/yandex-webmaster.py
 ```
 Счётчик Метрики зашит в скрипте (`METRIKA_COUNTER = 109728396`).
 
