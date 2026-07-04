@@ -429,7 +429,6 @@
     var revealTargets = document.querySelectorAll(
       '.section h2, .section__lead, .service-card, .doctor-card, .review-quote, .rating-card, .usp, .faq__item, .pf-card, .related__card, .prices-table'
     );
-    revealTargets.forEach(function (el) { el.classList.add('js-reveal'); });
 
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
@@ -440,7 +439,15 @@
       });
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
 
-    revealTargets.forEach(function (el) { io.observe(el); });
+    // Скрипт грузится с defer → выполняется уже ПОСЛЕ первой отрисовки.
+    // Всё, что уже видно на экране, не прячем (иначе вспышка + «по очереди»):
+    // анимируем только контент ниже сгиба, который пользователь ещё не видит.
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    revealTargets.forEach(function (el) {
+      if (el.getBoundingClientRect().top < vh) return; // уже во вьюпорте — показываем сразу
+      el.classList.add('js-reveal');
+      io.observe(el);
+    });
   }
 
   // Reading progress bar (top of viewport)
