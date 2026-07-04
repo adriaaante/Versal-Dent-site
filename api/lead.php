@@ -67,6 +67,11 @@ foreach ($_POST as $key => $value) {
     if ($key === 'company' || $key[0] === '_') continue;
     $value = trim((string)$value);
     if ($value === '') continue;
+    // Ограничиваем длину поля: спам-бот с огромным текстом иначе «уронит»
+    // сообщение целиком (Telegram отклоняет тексты длиннее 4096 символов).
+    if (mb_strlen($value) > 500) {
+        $value = mb_substr($value, 0, 500) . '…';
+    }
     $label = $labels[$key] ?? $key;
     // Экранируем markdown-метасимволы, чтобы заявка не сломала форматирование.
     $escaped = preg_replace('/([*_`\[])/u', '\\\\$1', $value);
