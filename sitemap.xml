@@ -1,35 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemaps-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://versal-dent.ru/</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/drobkova.png</image:loc>
-      <image:title>Дробкова Кристина Олеговна — главный врач клиники «Версаль», стоматолог-ортодонт</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/rustamov.png</image:loc>
-      <image:title>Рустамов Эмиль Дилгамович — стоматолог-ортопед клиники «Версаль»</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/smolyakova.png</image:loc>
-      <image:title>Смолякова Радана Сергеевна — стоматолог-терапевт, эндодонтист клиники «Версаль»</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/hachatryan.png</image:loc>
-      <image:title>Хачатрян Карина Вачагановна — детский стоматолог клиники «Версаль»</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/savchuk.png</image:loc>
-      <image:title>Савчук Григорий Олегович — стоматолог-хирург, имплантолог клиники «Версаль»</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/kendabaeva.png</image:loc>
-      <image:title>Кендабаева Зухро Бурхоновна — стоматолог-гигиенист клиники «Версаль»</image:title>
-    </image:image>
   </url>
   <url>
     <loc>https://versal-dent.ru/services/</loc>
@@ -102,30 +77,18 @@
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/drobkova.png</image:loc>
-      <image:title>Дробкова Кристина Олеговна — главный врач клиники «Версаль», стоматолог-ортодонт</image:title>
-    </image:image>
   </url>
   <url>
     <loc>https://versal-dent.ru/doctors/rustamov.html</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/rustamov.png</image:loc>
-      <image:title>Рустамов Эмиль Дилгамович — стоматолог-ортопед клиники «Версаль»</image:title>
-    </image:image>
   </url>
   <url>
     <loc>https://versal-dent.ru/doctors/smolyakova.html</loc>
     <lastmod>2026-06-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/smolyakova.png</image:loc>
-      <image:title>Смолякова Радана Сергеевна — стоматолог-терапевт, эндодонтист клиники «Версаль»</image:title>
-    </image:image>
   </url>
   <url>
     <loc>https://versal-dent.ru/doctors/kilasoniya.html</loc>
@@ -138,30 +101,18 @@
     <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/savchuk.png</image:loc>
-      <image:title>Савчук Григорий Олегович — стоматолог-хирург, имплантолог клиники «Версаль»</image:title>
-    </image:image>
   </url>
   <url>
     <loc>https://versal-dent.ru/doctors/kendabaeva.html</loc>
     <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/kendabaeva.png</image:loc>
-      <image:title>Кендабаева Зухро Бурхоновна — стоматолог-гигиенист клиники «Версаль»</image:title>
-    </image:image>
   </url>
   <url>
     <loc>https://versal-dent.ru/doctors/hachatryan.html</loc>
     <lastmod>2026-06-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <image:image>
-      <image:loc>https://versal-dent.ru/assets/img/doctors/hachatryan.png</image:loc>
-      <image:title>Хачатрян Карина Вачагановна — детский стоматолог клиники «Версаль»</image:title>
-    </image:image>
   </url>
   <url>
     <loc>https://versal-dent.ru/about.html</loc>
