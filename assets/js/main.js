@@ -93,6 +93,26 @@
   }
 
   // Phone input mask: +7 (XXX) XXX-XX-XX
+  // Полный российский номер — 11 цифр (код страны 7 + 10 значащих).
+  var PHONE_FULL_DIGITS = 11;
+  function phoneDigits(value) {
+    return (value || '').replace(/\D/g, '');
+  }
+  // Держим поле «невалидным» через Constraint Validation API, пока номер
+  // не набран полностью, — тогда форма не уйдёт с недобитым номером
+  // (нативный тултип браузера + проверка в обработчике submit).
+  function syncPhoneValidity(input) {
+    var n = phoneDigits(input.value).length;
+    if (n <= 1) {
+      // пусто или только код страны «+7 (» → пусть отрабатывает required,
+      // своё сообщение не навязываем
+      input.setCustomValidity('');
+    } else if (n < PHONE_FULL_DIGITS) {
+      input.setCustomValidity('Введите номер телефона полностью: +7 (XXX) XXX-XX-XX');
+    } else {
+      input.setCustomValidity('');
+    }
+  }
   function maskPhone(input) {
     input.addEventListener('input', function (e) {
       var digits = e.target.value.replace(/\D/g, '');
@@ -105,9 +125,16 @@
       if (digits.length >= 8) out += '-' + digits.slice(7, 9);
       if (digits.length >= 10) out += '-' + digits.slice(9, 11);
       e.target.value = out;
+      syncPhoneValidity(e.target);
     });
     input.addEventListener('focus', function (e) {
       if (!e.target.value) e.target.value = '+7 (';
+    });
+    input.addEventListener('blur', function (e) {
+      // Если оставили только заготовку «+7 (» без цифр — очищаем, чтобы
+      // сработал required («заполните поле»), а не «неполный номер».
+      if (phoneDigits(e.target.value).length <= 1) e.target.value = '';
+      syncPhoneValidity(e.target);
     });
   }
   document.querySelectorAll('input[type="tel"]').forEach(maskPhone);
@@ -147,6 +174,16 @@
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+
+      // Не отправляем заявку с неполным/пустым телефоном. Пересчитываем
+      // валидность всех тел-полей и просим браузер показать нативную
+      // подсказку у первого невалидного поля (сам сфокусирует его).
+      form.querySelectorAll('input[type="tel"]').forEach(syncPhoneValidity);
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
       var success = form.querySelector('[data-form-success]');
       var submitBtn = form.querySelector('button[type="submit"]');
       var origLabel = submitBtn ? submitBtn.textContent : 'Отправить';

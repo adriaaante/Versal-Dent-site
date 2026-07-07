@@ -55,6 +55,14 @@ if (!empty($_POST['company'] ?? '')) {
     reply(200, ['ok' => true]);
 }
 
+// Серверная проверка телефона — страховка на случай, если JS-валидация
+// обойдена (бот шлёт POST напрямую или скрипт не загрузился). Полный
+// российский номер — ровно 11 цифр (код 7/8 + 10 значащих).
+$phoneDigits = preg_replace('/\D/', '', (string)($_POST['phone'] ?? ''));
+if (strlen($phoneDigits) !== 11 || !in_array($phoneDigits[0], ['7', '8'], true)) {
+    reply(400, ['ok' => false, 'error' => 'invalid_phone']);
+}
+
 $labels = [
     'name'    => 'Имя',
     'phone'   => 'Телефон',
