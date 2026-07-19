@@ -69,11 +69,11 @@ def vgrad(img, y0, y1, color, a0, a1):
         dd.line([(0, y), (img.size[0], y)], fill=color + (int(a0 + (a1 - a0) * t),))
     return Image.alpha_composite(img.convert("RGBA"), ov)
 
-def fit(ph, w, h, focus=0.5):
-    """cover-кроп под w×h; focus — вертикальный акцент (0 верх, 1 низ)."""
+def fit(ph, w, h, focus=0.5, hfocus=0.5):
+    """cover-кроп под w×h; focus/hfocus — акцент по вертикали/горизонтали (0..1)."""
     r = max(w / ph.width, h / ph.height)
     ph = ph.resize((int(ph.width * r) + 1, int(ph.height * r) + 1), Image.LANCZOS)
-    x = (ph.width - w) // 2
+    x = int((ph.width - w) * hfocus)
     y = int((ph.height - h) * focus)
     return ph.crop((x, y, x + w, y + h))
 
@@ -230,9 +230,9 @@ def steps_slide(out, title_lines, steps, foot=None, disclaimer=False):
     save(img, out)
 
 def cta(out, photo, title_lines, sub_lines, btn="Записаться", chips=(),
-        focus=0.5, disclaimer=False):
+        focus=0.5, hfocus=0.5, disclaimer=False):
     img = Image.new("RGBA", (W, H), IVORY)
-    ph = fit(photo, W, 950, focus).convert("RGBA")
+    ph = fit(photo, W, 950, focus, hfocus).convert("RGBA")
     ph = vgrad(ph, 0, 280, (42, 36, 30), 125, 0)
     fade = Image.new("L", (1, 240), 0)
     for i in range(240): fade.putpixel((0, i), int(255*(i/239)))
