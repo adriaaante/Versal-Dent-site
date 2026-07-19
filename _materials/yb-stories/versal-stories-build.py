@@ -1,95 +1,92 @@
-"""Сборка всех слайдов линейки сторис ЯБ «Версаль». Факты — с сайта."""
+"""Сборка слайдов линейки сторис ЯБ «Версаль» (v2 — плотная композиция,
+реальные фото клиники в CTA/вставках). Факты — с сайта."""
 import importlib.util
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 from pathlib import Path
 
 S = Path(__file__).parent
 spec = importlib.util.spec_from_file_location("vs", S / "versal-stories.py")
 vs = importlib.util.module_from_spec(spec); spec.loader.exec_module(vs)
-Image_, D = vs.Image, vs.ImageDraw
 
-DISC = "Имеются противопоказания, необходима консультация специалиста"
-
-def content_note(out, note):
-    """Дописать мелкий дисклеймер внизу готового слайда (выше свободной зоны)."""
-    img = Image.open(vs.S / out).convert("RGB")
-    d = ImageDraw.Draw(img)
-    f = vs.mr(24, 500)
-    w = d.textlength(note, font=f)
-    d.text(((vs.W - w) / 2, 1655), note, font=f, fill=(160, 150, 136))
-    img.save(vs.S / out, "JPEG", quality=92, optimize=True)
-
+CL = vs.VD / "assets/img/clinic"
 ph = lambda name: Image.open(S / name).convert("RGB")
+cl = lambda n: Image.open(CL / f"clinic-{n}.webp").convert("RGB")
 
 # ============ История 1 — «Не страшно» ============
 vs.cover("v-s1-1.jpg", ph("vbg-worry.png"), "знакомо?",
          ["Боитесь", "стоматологов?"],
-         ["Мы это понимаем — и умеем помочь"])
+         ["Мы это понимаем — и умеем помочь"],
+         chips=["без боли", "бережно", "для всей семьи"])
 vs.content("v-s1-2.jpg", ["Лечим бережно", "и без боли"],
     [("Современная анестезия", "Комфортно даже самым тревожным"),
      ("Врач всё объясняет", "Что и зачем — до начала лечения"),
      ("Семейная клиника", "Принимаем взрослых и детей")],
-    photo=ph("vbg-care.png"), photo_h=600)
+    photo=ph("vbg-care.png"), photo_h=540, focus=0.28)
 vs.cta("v-s1-3.jpg", ph("vbg-smile.png"),
-       ["Первый шаг —", "просто визит"],
-       ["Осмотр, знакомство и план,", "без уговоров и давления"],
-       btn="Записаться", disclaimer=True)
+       ["Запишитесь", "на приём"],
+       ["Консультация, план — а чаще всего", "и решение вопроса в тот же визит"],
+       btn="Записаться", chips=["ежедневно 10:00–20:00", "м. Новокосино"],
+       focus=0.35, disclaimer=True)
 
 # ============ История 2 — «Цены честно» ============
 vs.cover("v-s2-1.jpg", ph("vbg-think.png"), "главный вопрос",
          ["Сколько будет", "стоить лечение?"],
-         ["Отвечаем до начала — письменно"])
+         ["Отвечаем письменно — до начала"],
+         focus=0.75, chips=["план с ценами", "без сюрпризов"])
 vs.content("v-s2-2.jpg", ["План с ценами —", "до лечения"],
     [("Письменный план", ["Работы, сроки и стоимость —", "вы утверждаете заранее"]),
      ("Цены фиксируются", "В чеке нет ничего, чего нет в плане"),
-     ("КТ + план — 4 200 ₽", ["Вместо 7 500 ₽.", "При договоре на лечение — бесплатно"]),
-     ("Документы на руки", "Договор, чек и справка для вычета 13%")])
-content_note("v-s2-2.jpg", DISC)
-vs.cta("v-s2-3.jpg", ph("vbg-lounge.png").crop((0, 950, 1152, 2048)),
+     ("КТ + план — 4 200 ₽", ["Вместо 7 500 ₽. При договоре", "на лечение — бесплатно"]),
+     ("Документы на руки", "Договор, чек, справка для вычета 13%")],
+    disclaimer=True)
+vs.cta("v-s2-3.jpg", cl(4),
        ["Никаких сюрпризов", "в чеке"],
-       ["Полный прайс — на сайте клиники"],
-       btn="Смотреть цены", disclaimer=True)
+       ["Полный прайс — на сайте клиники.", "На фото — наш ресепшн"],
+       btn="Смотреть цены", chips=["цены в договоре", "вычет 13%"],
+       disclaimer=True)
 
 # ============ История 3 — «Технологии» ============
 vs.cover("v-s3-1.jpg", ph("vbg-ct.png"), "цифровая стоматология",
          ["Что помогает", "лечить точно?"],
-         ["Показываем оборудование клиники"], ty=1240)
+         ["Показываем оборудование клиники"],
+         chips=["3D-КТ", "3Shape", "микроскоп"])
 vs.content("v-s3-2.jpg", ["Пять технологий", "клиники"],
     [("3D-томограф (КТ)", "Видим кость и каналы до лечения"),
      ("Сканер 3Shape", "Цифровые слепки вместо слепочной массы"),
      ("Микроскоп", "Спасаем «безнадёжные» зубы"),
      ("Digital Smile Design", "Улыбка на экране до начала работ"),
      ("Стерилизация класса B", "Крафт-пакеты для каждого пациента")])
-vs.cta("v-s3-3.jpg", ph("vbg-micro1.png").crop((0, 500, 1152, 1600)),
+vs.cta("v-s3-3.jpg", cl(6),
        ["Точность видно", "в результате"],
-       ["Запишитесь на цифровую диагностику"],
-       btn="Подробнее", disclaimer=True)
+       ["Запишитесь на цифровую диагностику.", "На фото — наш кабинет"],
+       btn="Подробнее", chips=["КТ за минуту", "план за визит"],
+       focus=0.85, disclaimer=True)
 
 # ============ История 4 — «Наши врачи» ============
-# обложка: айвори + три реальных портрета
+# обложка: 6 реальных портретов в два ряда
 img = Image.new("RGBA", (vs.W, vs.H), vs.IVORY)
-img = vs.vgrad(img, 0, 420, (245, 238, 226), 255, 0)
+img = vs.vgrad(img, 0, 430, vs.SAND, 255, 0)
 img = vs.header(img)
 d = ImageDraw.Draw(img)
-ML = 72; y = 290
-y = vs.gold_chip(d, img, ML, y, "знакомьтесь") + 44
+y = 244
+y = vs.gold_chip(d, vs.ML, y, "знакомьтесь") + 40
 for t in ["Кто будет", "вас лечить?"]:
-    d.text((ML, y), t, font=vs.pf(110, 800), fill=vs.ESP); y += 132
-d.line([ML, y+16, ML+140, y+16], fill=vs.GOLD, width=6)
-y += 80
-pw, phh = 296, 370
-xs = [ML, (vs.W - pw)//2, vs.W - ML - pw]
-ys = [y, y + 120, y + 240]
-for (slug, x, yy) in [("drobkova", xs[0], ys[0]), ("savchuk", xs[1], ys[1]), ("smolyakova", xs[2], ys[2])]:
-    p = Image.open(vs.VD / f"assets/img/doctors/{slug}.webp").convert("RGB")
-    p = vs.rounded(vs.fit(p, pw, phh), 30)
-    sh = Image.new("RGBA", img.size, (0,0,0,0))
-    ImageDraw.Draw(sh).rounded_rectangle([x+6, yy+12, x+pw+6, yy+phh+12], radius=30, fill=(74,63,53,70))
-    img = Image.alpha_composite(img, sh.filter(vs.ImageFilter.GaussianBlur(14)))
-    img.paste(p, (x, yy), p)
+    d.text((vs.ML, y), t, font=vs.pf(108, 800), fill=vs.ESP); y += 128
+d.line([vs.ML, y+14, vs.ML+150, y+14], fill=vs.GOLD, width=6)
+y += 66
+pw, phh, gap = 296, 356, 24
+xs = [vs.ML, (vs.W - pw)//2, vs.W - vs.ML - pw]
+rows = [("drobkova", "savchuk", "smolyakova"), ("rustamov", "kendabaeva", "hachatryan")]
+for row in rows:
+    for slug, x in zip(row, xs):
+        p = Image.open(vs.VD / f"assets/img/doctors/{slug}.webp").convert("RGB")
+        p = vs.rounded(vs.fit(p, pw, phh), 28)
+        img = vs.shadow_paste(img, p, x, y, rad=28)
+    y += phh + gap
 d = ImageDraw.Draw(img)
-d.text((ML, ys[2] + phh + 60), "Семь врачей профильных специализаций",
-       font=vs.mr(38, 600), fill=vs.MUT)
+line = "7 врачей профильных специализаций"
+f = vs.mr(34, 800); tw = d.textlength(line, font=f)
+d.text(((vs.W-tw)/2, y+22), line, font=f, fill=vs.GOLD_D)
 vs.save(img, "v-s4-1.jpg")
 
 vs.doctors_slide("v-s4-2.jpg", ["Врачи «Версаль»"],
@@ -108,26 +105,29 @@ vs.doctors_slide("v-s4-3.jpg", ["…и вся команда"],
      ("hachatryan", "Карина Хачатрян", "Детский стоматолог",
       ["Приём детей с 2 лет", "Бережно и в игре"])],
     note="Полные профили — на сайте клиники")
-vs.cta("v-s4-4.jpg", ph("vbg-care.png").crop((0, 750, 1152, 1900)),
+vs.cta("v-s4-4.jpg", ph("vbg-care.png"),
        ["Врачу важно", "доверять"],
        ["Профили, специализации и стаж —", "на сайте клиники"],
-       btn="Все врачи", disclaimer=False)
+       btn="Все врачи", chips=["стаж 10–15+ лет", "сертификаты"],
+       focus=0.22)
 
 # ============ История 5 — «Первый визит» ============
 vs.cover("v-s5-1.jpg", ph("vbg-family.png"), "всей семьёй",
          ["Первый раз", "в «Версаль»?"],
-         ["Рассказываем, как всё устроено"])
+         ["Рассказываем, как всё устроено"],
+         chips=["взрослым", "детям с 2 лет"])
 vs.steps_slide("v-s5-2.jpg", ["Как проходит", "первый визит"],
-    [("Запись", "По телефону или на сайте"),
-     ("Осмотр и 3D-КТ", "Полная картина за минуту"),
+    [("Запись", "По телефону, на сайте или в мессенджере"),
+     ("Осмотр и 3D-КТ", "Полная картина состояния за минуту"),
      ("План с ценами", "Письменно, до начала лечения"),
-     ("Лечение в комфорте", "Бережно и без боли"),
+     ("Решение вопроса", "Часто начинаем лечение в тот же визит"),
      ("Гарантия", "По договору, до 10 лет")],
-    foot="Первая консультация ортодонта — бесплатно")
-content_note("v-s5-2.jpg", DISC)
-vs.cta("v-s5-3.jpg", ph("vbg-lounge.png").crop((0, 1100, 1152, 2048)),
+    foot="Первая консультация ортодонта — бесплатно",
+    disclaimer=True)
+vs.cta("v-s5-3.jpg", cl(5),
        ["Приходите", "знакомиться"],
-       ["Реутов, ул. Победы, 22 · м. Новокосино", "Ежедневно 10:00–20:00"],
-       btn="Записаться", disclaimer=True)
+       ["На фото — наша зона ожидания.", "Ждём вас ежедневно с 10:00 до 20:00"],
+       btn="Записаться", chips=["ул. Победы, 22", "м. Новокосино"],
+       disclaimer=True)
 
-print("ALL SLIDES BUILT")
+print("ALL SLIDES BUILT v2")
