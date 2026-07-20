@@ -43,7 +43,7 @@ ITEMS = {
  "vv-06-desny.jpg":     ("vit-desny.png", None),
  "vv-07-udalenie.jpg":  ("vit-udalenie.png", None),
  "vv-08-otbelivanie.jpg": ("vbg-smile.png", (0, 300, 1152, 1452)), # белоснежная улыбка
- "vv-09-viniry.jpg":    ("vit-viniry.png", None),
+ "vv-09-viniry.jpg":    ("vit-viniry.png", (620, 0, 2048, 1428)),
  "vv-10-koronka.jpg":   ("vit-koronka.png", None),
  "vv-11-implant.jpg":   ("vit-implant.png", None),
  "vv-12-brekety.jpg":   ("vit-brekety.png", None),
