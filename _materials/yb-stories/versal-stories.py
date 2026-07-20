@@ -92,8 +92,8 @@ def shadow_paste(img, ph, x, y, rad=36):
 # ---------- слайды ----------
 
 def cover(out, photo, kicker, title_lines, sub_lines=(), title_size=110,
-          focus=0.5, chips=()):
-    img = fit(photo, W, H, focus).convert("RGBA")
+          focus=0.5, hfocus=0.5, chips=()):
+    img = fit(photo, W, H, focus, hfocus).convert("RGBA")
     img = vgrad(img, 0, 320, (42, 36, 30), 135, 0)
     img = vgrad(img, H - 1050, H, (42, 36, 30), 0, 240)
     img = header(img, dark_bg=True)
