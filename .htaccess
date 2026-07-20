@@ -41,6 +41,7 @@
 # совпавшее). Слаги — именно версалевские (например implantacziya через «cz»).
 <IfModule mod_alias.c>
     # --- старый раздел /uslugi/* → профильные услуги (частное выше общего) ---
+    RedirectMatch 301 ^/tehnologii/mikroskop\.html$      /tehnologii.html
     RedirectMatch 301 ^/uslugi/implantacziya(/.*)?$          /services/implantaciya.html
     RedirectMatch 301 ^/uslugi/implantaciya(/.*)?$           /services/implantaciya.html
     RedirectMatch 301 ^/uslugi/ortodontiya(/.*)?$            /services/ortodontiya.html
