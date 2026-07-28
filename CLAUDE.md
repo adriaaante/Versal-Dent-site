@@ -400,3 +400,21 @@ Playfair + Manrope, лого `logo-mark.png` на белом чипе), бейд
 - Папка Drive Версаля для материалов ЯБ: `1nPDng6oD-IcNLg6WcNmCrMwJQtdSIhX1`
   (создавать в ней подпапку на историю + google-doc с порядком слайдов,
   CDN-ссылками и настройками: название ≤15, кнопка ≤15, ссылка кнопки).
+
+## Яндекс.Вебмастер — прямой доступ через API (зафиксировано 28.07.2026)
+
+В env CCR-сессий лежат OAuth-токены `YANDEX_WEBMASTER_TOKEN_VERSAL` /
+`YANDEX_WEBMASTER_TOKEN_ANGEL` (не спрашивать у владельца — проверить `env`).
+API: `https://api.webmaster.yandex.net/v4/user/{uid}/hosts/{host_id}/...`,
+заголовок `Authorization: OAuth <token>`. Версаль: uid `1678768778`,
+host_id `https:versal-dent.ru:443`. Эндпоинты: `/summary`, `/sitemaps`,
+`/search-queries/popular` (позиции через `AVG_SHOW_POSITION`),
+v4.1 `POST /query-analytics/list`, `POST /recrawl/queue` (переобход).
+Региональности в API нет — только кабинет.
+
+Состояние на 28.07.2026: проблем в Вебмастере нет, 44 страницы в поиске,
+ИКС 0 (молодой сайт), запросы в основном брендовые. Региональность:
+ЯБ = Реутов, Вебмастер = Реутов (можно расширить до «Москва и МО» для
+охвата Новокосино — у Angel так). После выкатки удаления микроскопа
+(28.07) главная/технологии/терапия/цены/mikroskop.html (301) отправлены
+на переобход через API.
