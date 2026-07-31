@@ -142,15 +142,10 @@
   // Lead submission — POST в собственный PHP-эндпоинт на хостинге,
   // оттуда уже идёт серверный fetch в Telegram Bot API.
   // Токен бота лежит только на сервере (api/config.php, в .gitignore).
-  // Момент загрузки страницы — по нему сервер отличает живого человека от
-  // бота: заполнить имя и телефон быстрее пары секунд физически нельзя.
-  var pageOpenedAt = Date.now();
-
   function sendLead(form) {
     var fd = new FormData(form);
     fd.append('_page', location.origin + (location.pathname || '/'));
     fd.append('_referrer', document.referrer || '');
-    fd.append('_elapsed', String(Date.now() - pageOpenedAt));
     // Прикладываем UTM/yclid из sessionStorage — менеджер увидит источник
     // лида, а в Метрике можно загрузить офлайн-конверсии по yclid.
     var tracking = getTrackingParams();
@@ -213,13 +208,7 @@
         function () { done(true,  'Спасибо! Мы перезвоним за 15 минут.'); },
         function (err) {
           console.warn('[lead] failed', err);
-          // Телефон не прошёл серверную проверку — человек должен понять,
-          // что дело в номере, и исправить его, а не гадать.
-          if (err && err.error === 'invalid_phone') {
-            done(false, 'Проверьте номер телефона — кажется, в нём опечатка.');
-            return;
-          }
-          done(false, 'Не удалось отправить. Позвоните, пожалуйста: +7 (965) 188-58-88');
+          done(false, 'Не удалось отправить. Позвоните, пожалуйста: +7 (000) 000-00-00');
         }
       );
     });
