@@ -142,10 +142,15 @@
   // Lead submission — POST в собственный PHP-эндпоинт на хостинге,
   // оттуда уже идёт серверный fetch в Telegram Bot API.
   // Токен бота лежит только на сервере (api/config.php, в .gitignore).
+  // Момент загрузки страницы — по нему сервер отличает живого человека от
+  // бота: заполнить имя и телефон быстрее пары секунд физически нельзя.
+  var pageOpenedAt = Date.now();
+
   function sendLead(form) {
     var fd = new FormData(form);
     fd.append('_page', location.origin + (location.pathname || '/'));
     fd.append('_referrer', document.referrer || '');
+    fd.append('_elapsed', String(Date.now() - pageOpenedAt));
     // Прикладываем UTM/yclid из sessionStorage — менеджер увидит источник
     // лида, а в Метрике можно загрузить офлайн-конверсии по yclid.
     var tracking = getTrackingParams();
