@@ -1,5 +1,12 @@
 # Versal-Dent — канонизация хоста (https, без www) и gzip.
 # Проверка X-Forwarded-Proto — чтобы не зациклиться за SSL-прокси reg.ru.
+
+# Кодировка в HTTP-заголовке Content-Type. Без неё Apache отдаёт просто
+# "text/html", и разбор кодировки остаётся на откуп <meta charset> —
+# браузеры справляются, но часть парсеров (агрегаторы, SEO-сервисы,
+# скрипты) читают кириллицу как латиницу. У Венеции строка была с самого
+# начала, здесь выравниваем.
+AddDefaultCharset UTF-8
 <IfModule mod_rewrite.c>
     RewriteEngine On
     # www.versal-dent.ru → versal-dent.ru (сразу на https)
