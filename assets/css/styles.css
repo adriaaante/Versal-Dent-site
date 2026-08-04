@@ -356,8 +356,8 @@ p { margin: 0 0 1em; }
 /* Prices snippet */
 .prices-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); }
 .prices-table th, .prices-table td { padding: 14px 18px; text-align: left; border-bottom: 1px solid var(--c-border); font-size: 14.5px; word-wrap: break-word; overflow-wrap: anywhere; }
-.prices-table .prices-subhead td { background: var(--c-text); color: var(--c-accent); font-weight: 700; font-size: 13px; letter-spacing: .07em; text-transform: uppercase; padding-top: 11px; padding-bottom: 11px; text-align: left !important; white-space: normal !important; border-bottom: 0; }
-.prices-table th { background: var(--c-primary-50); color: var(--c-primary); font-weight: 600; font-size: 13px; letter-spacing: .03em; text-transform: uppercase; }
+.prices-table .prices-subhead td { background: var(--c-primary-50); color: var(--c-primary); font-weight: 700; font-size: 13px; letter-spacing: .07em; text-transform: uppercase; padding-top: 11px; padding-bottom: 11px; text-align: left !important; white-space: normal !important; border-bottom: 0; }
+.prices-table th { background: var(--c-text); color: var(--c-accent); font-weight: 600; font-size: 13px; letter-spacing: .03em; text-transform: uppercase; }
 .prices-table th:last-child { text-align: right; white-space: nowrap; overflow-wrap: normal; word-break: keep-all; }
 .prices-table td:last-child { text-align: right; font-weight: 600; white-space: nowrap; }
 .prices-table tr:last-child td { border-bottom: 0; }
