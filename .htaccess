@@ -49,6 +49,8 @@ AddDefaultCharset UTF-8
 <IfModule mod_alias.c>
     # --- старый раздел /uslugi/* → профильные услуги (частное выше общего) ---
     RedirectMatch 301 ^/tehnologii/mikroskop\.html$      /tehnologii.html
+    # врач больше не работает в клинике (снята 10.08.2026)
+    RedirectMatch 301 ^/doctors/smolyakova\.html$      /doctors/
     RedirectMatch 301 ^/uslugi/implantacziya(/.*)?$          /services/implantaciya.html
     RedirectMatch 301 ^/uslugi/implantaciya(/.*)?$           /services/implantaciya.html
     RedirectMatch 301 ^/uslugi/ortodontiya(/.*)?$            /services/ortodontiya.html
