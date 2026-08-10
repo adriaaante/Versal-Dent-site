@@ -319,6 +319,13 @@ API. Токен и chat_id — в `api/config.php` (**в .gitignore, в репо
 `CLAUDE.md`, `README.md`, `BRAND.md`, `.gitignore`, `_originals/`,
 `api/config.php.example`. `api/config.php` живёт только на сервере.
 
+**Автодеплой через GitHub Actions (настроено 10.08.2026):** пуш в `main`
+запускает `.github/workflows/deploy.yml` — раннер GitHub по SSH выполняет
+`~/versal-dent.sh` на сервере. Пароль SSH — в секрете репозитория
+**`REGRU_SSH_PASSWORD`** (в git НЕ хранить). Из CCR-контейнера прямого
+SSH нет (наружу открыт только 443). Произвольная команда на сервере —
+workflow `server-command.yml` в репо Angel (сервер общий).
+
 ## Workflow пушей
 
 Разработка — на сессионной ветке (см. инструкции сессии). После коммита
