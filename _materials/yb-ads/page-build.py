@@ -86,7 +86,12 @@ h1{font:600 34px/1.2 'Playfair Display',Georgia,serif;margin:0 0 8px}
   background:var(--gold);color:#fff;font-weight:700;font-size:13px;display:grid;place-items:center}
 .ad__pic{display:block;text-decoration:none}
 .ad__pic img{width:190px;height:190px;object-fit:cover;border-radius:10px;display:block}
-.ad__dl{display:block;text-align:center;font-size:12.5px;color:var(--gold);font-weight:600;margin-top:7px}
+@media(max-width:720px){.ad__dl{width:100%}}
+.ad__dl{display:block;width:190px;margin-top:8px;padding:8px 10px;border:1px solid var(--gold);
+  border-radius:8px;background:#fff;color:var(--gold);font:600 12.5px/1.2 Manrope,sans-serif;
+  cursor:pointer;transition:.15s}
+.ad__dl:hover{background:var(--gold);color:#fff}
+.ad__dl:disabled{opacity:.6;cursor:default}
 .f{margin:0 0 11px}
 .f__k{display:block;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#8d8175;margin-bottom:4px}
 .f__k em{font-style:normal;color:#b3a793}
@@ -111,10 +116,10 @@ def build():
         rows.append(f'''
 <article class="ad">
   <div class="ad__num">{i}</div>
-  <a class="ad__pic" href="{img}" download target="_blank" rel="noopener">
+  <div class="ad__pic">
     <img src="{img}" alt="" loading="lazy">
-    <span class="ad__dl">Скачать картинку</span>
-  </a>
+    <button class="ad__dl" data-dl="{img}" data-name="versal-{k}.jpg">Скачать картинку</button>
+  </div>
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>{len(h)}/56</em></span>
       <div class="f__v" data-copy>{html.escape(h)}</div></div>
@@ -154,6 +159,26 @@ def build():
 ч. 7 ст. 24 ФЗ «О рекламе» — не обрезайте нижнюю полосу.</footer>
 </div>
 <script>
+// Скачивание по кнопке: атрибут download на чужой домен браузер игнорирует,
+// поэтому тянем файл через fetch (CDN отдаёт Access-Control-Allow-Origin: *)
+// и сохраняем blob под понятным именем. Если сеть/CORS подвели — открываем
+// картинку в новой вкладке, чтобы кнопка не оказалась мёртвой.
+document.querySelectorAll('[data-dl]').forEach(function(btn){{
+  btn.addEventListener('click', function(){{
+    var url = btn.dataset.dl, name = btn.dataset.name, txt = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Скачиваю…';
+    fetch(url).then(function(r){{ return r.blob(); }}).then(function(b){{
+      var u = URL.createObjectURL(b), a = document.createElement('a');
+      a.href = u; a.download = name; document.body.appendChild(a); a.click();
+      a.remove(); setTimeout(function(){{ URL.revokeObjectURL(u); }}, 4000);
+      btn.textContent = 'Готово ✓';
+      setTimeout(function(){{ btn.textContent = txt; btn.disabled = false; }}, 1400);
+    }}).catch(function(){{
+      window.open(url, '_blank');
+      btn.textContent = txt; btn.disabled = false;
+    }});
+  }});
+}});
 document.querySelectorAll('[data-copy]').forEach(function(el){{
   el.addEventListener('click', function(){{
     navigator.clipboard.writeText(el.innerText.trim()).then(function(){{

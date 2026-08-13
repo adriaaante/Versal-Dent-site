@@ -20,7 +20,12 @@ h1{font:600 34px/1.2 'Playfair Display',Georgia,serif;margin:0 0 8px}
   background:var(--gold);color:#fff;font-weight:700;font-size:13px;display:grid;place-items:center}
 .ad__pic{display:block;text-decoration:none}
 .ad__pic img{width:190px;height:190px;object-fit:cover;border-radius:10px;display:block}
-.ad__dl{display:block;text-align:center;font-size:12.5px;color:var(--gold);font-weight:600;margin-top:7px}
+@media(max-width:720px){.ad__dl{width:100%}}
+.ad__dl{display:block;width:190px;margin-top:8px;padding:8px 10px;border:1px solid var(--gold);
+  border-radius:8px;background:#fff;color:var(--gold);font:600 12.5px/1.2 Manrope,sans-serif;
+  cursor:pointer;transition:.15s}
+.ad__dl:hover{background:var(--gold);color:#fff}
+.ad__dl:disabled{opacity:.6;cursor:default}
 .f{margin:0 0 11px}
 .f__k{display:block;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:#8d8175;margin-bottom:4px}
 .f__k em{font-style:normal;color:#b3a793}
@@ -48,10 +53,10 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
 
 <article class="ad">
   <div class="ad__num">1</div>
-  <a class="ad__pic" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/ade7f3bd-1228-4759-b648-3b7690980359.jpg" download target="_blank" rel="noopener">
+  <div class="ad__pic">
     <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/ade7f3bd-1228-4759-b648-3b7690980359.jpg" alt="" loading="lazy">
-    <span class="ad__dl">Скачать картинку</span>
-  </a>
+    <button class="ad__dl" data-dl="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/ade7f3bd-1228-4759-b648-3b7690980359.jpg" data-name="versal-kariés.jpg">Скачать картинку</button>
+  </div>
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>39/56</em></span>
       <div class="f__v" data-copy>Лечение кариеса в Реутове за один визит</div></div>
@@ -67,10 +72,10 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
 </article>
 <article class="ad">
   <div class="ad__num">2</div>
-  <a class="ad__pic" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/9364fb8b-b040-4fa5-9b56-cdd77da7e2fe.jpg" download target="_blank" rel="noopener">
+  <div class="ad__pic">
     <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/9364fb8b-b040-4fa5-9b56-cdd77da7e2fe.jpg" alt="" loading="lazy">
-    <span class="ad__dl">Скачать картинку</span>
-  </a>
+    <button class="ad__dl" data-dl="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/9364fb8b-b040-4fa5-9b56-cdd77da7e2fe.jpg" data-name="versal-kanaly.jpg">Скачать картинку</button>
+  </div>
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>45/56</em></span>
       <div class="f__v" data-copy>Лечение каналов — сохраняем зуб, а не удаляем</div></div>
@@ -86,10 +91,10 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
 </article>
 <article class="ad">
   <div class="ad__num">3</div>
-  <a class="ad__pic" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/9c21a0b6-bc75-4bca-a7f7-a4ac6fa1c82d.jpg" download target="_blank" rel="noopener">
+  <div class="ad__pic">
     <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/9c21a0b6-bc75-4bca-a7f7-a4ac6fa1c82d.jpg" alt="" loading="lazy">
-    <span class="ad__dl">Скачать картинку</span>
-  </a>
+    <button class="ad__dl" data-dl="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/9c21a0b6-bc75-4bca-a7f7-a4ac6fa1c82d.jpg" data-name="versal-bol.jpg">Скачать картинку</button>
+  </div>
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>39/56</em></span>
       <div class="f__v" data-copy>Болит зуб? Примем сегодня, без выходных</div></div>
@@ -105,10 +110,10 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
 </article>
 <article class="ad">
   <div class="ad__num">4</div>
-  <a class="ad__pic" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/75468904-7d65-4634-a1cb-49861a6aa6de.jpg" download target="_blank" rel="noopener">
+  <div class="ad__pic">
     <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/75468904-7d65-4634-a1cb-49861a6aa6de.jpg" alt="" loading="lazy">
-    <span class="ad__dl">Скачать картинку</span>
-  </a>
+    <button class="ad__dl" data-dl="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/75468904-7d65-4634-a1cb-49861a6aa6de.jpg" data-name="versal-mudrosti.jpg">Скачать картинку</button>
+  </div>
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>32/56</em></span>
       <div class="f__v" data-copy>Удаление зуба мудрости в Реутове</div></div>
@@ -124,10 +129,10 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
 </article>
 <article class="ad">
   <div class="ad__num">5</div>
-  <a class="ad__pic" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/b1305a20-2573-49e7-aa6b-d6ff9c471f6a.jpg" download target="_blank" rel="noopener">
+  <div class="ad__pic">
     <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/b1305a20-2573-49e7-aa6b-d6ff9c471f6a.jpg" alt="" loading="lazy">
-    <span class="ad__dl">Скачать картинку</span>
-  </a>
+    <button class="ad__dl" data-dl="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/b1305a20-2573-49e7-aa6b-d6ff9c471f6a.jpg" data-name="versal-kt.jpg">Скачать картинку</button>
+  </div>
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>38/56</em></span>
       <div class="f__v" data-copy>КТ и письменный план лечения со сметой</div></div>
@@ -143,10 +148,10 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
 </article>
 <article class="ad">
   <div class="ad__num">6</div>
-  <a class="ad__pic" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/ed967af5-bd70-4ce7-a773-49f6f9d9aaa6.jpg" download target="_blank" rel="noopener">
+  <div class="ad__pic">
     <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/ed967af5-bd70-4ce7-a773-49f6f9d9aaa6.jpg" alt="" loading="lazy">
-    <span class="ad__dl">Скачать картинку</span>
-  </a>
+    <button class="ad__dl" data-dl="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/ed967af5-bd70-4ce7-a773-49f6f9d9aaa6.jpg" data-name="versal-cirkon.jpg">Скачать картинку</button>
+  </div>
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>34/56</em></span>
       <div class="f__v" data-copy>Циркониевая коронка — как свой зуб</div></div>
@@ -162,10 +167,10 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
 </article>
 <article class="ad">
   <div class="ad__num">7</div>
-  <a class="ad__pic" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/395fcfee-a986-47c5-a775-e28903b9db05.jpg" download target="_blank" rel="noopener">
+  <div class="ad__pic">
     <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/395fcfee-a986-47c5-a775-e28903b9db05.jpg" alt="" loading="lazy">
-    <span class="ad__dl">Скачать картинку</span>
-  </a>
+    <button class="ad__dl" data-dl="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/395fcfee-a986-47c5-a775-e28903b9db05.jpg" data-name="versal-implant.jpg">Скачать картинку</button>
+  </div>
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>35/56</em></span>
       <div class="f__v" data-copy>Имплант с коронкой под ключ, Реутов</div></div>
@@ -181,10 +186,10 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
 </article>
 <article class="ad">
   <div class="ad__num">8</div>
-  <a class="ad__pic" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/64bba5c1-9a82-40ba-9634-981e9404bbb2.jpg" download target="_blank" rel="noopener">
+  <div class="ad__pic">
     <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/64bba5c1-9a82-40ba-9634-981e9404bbb2.jpg" alt="" loading="lazy">
-    <span class="ad__dl">Скачать картинку</span>
-  </a>
+    <button class="ad__dl" data-dl="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/64bba5c1-9a82-40ba-9634-981e9404bbb2.jpg" data-name="versal-allon4.jpg">Скачать картинку</button>
+  </div>
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>38/56</em></span>
       <div class="f__v" data-copy>Все зубы на 4 имплантах — за один этап</div></div>
@@ -200,10 +205,10 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
 </article>
 <article class="ad">
   <div class="ad__num">9</div>
-  <a class="ad__pic" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/d914676a-c45d-4433-a987-54207d182824.jpg" download target="_blank" rel="noopener">
+  <div class="ad__pic">
     <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/d914676a-c45d-4433-a987-54207d182824.jpg" alt="" loading="lazy">
-    <span class="ad__dl">Скачать картинку</span>
-  </a>
+    <button class="ad__dl" data-dl="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/d914676a-c45d-4433-a987-54207d182824.jpg" data-name="versal-protez.jpg">Скачать картинку</button>
+  </div>
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>38/56</em></span>
       <div class="f__v" data-copy>Съёмный протез в Реутове, у Новокосино</div></div>
@@ -219,10 +224,10 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
 </article>
 <article class="ad">
   <div class="ad__num">10</div>
-  <a class="ad__pic" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/884f2eb1-dfdb-42be-8b2f-113a6e13c64f.jpg" download target="_blank" rel="noopener">
+  <div class="ad__pic">
     <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/884f2eb1-dfdb-42be-8b2f-113a6e13c64f.jpg" alt="" loading="lazy">
-    <span class="ad__dl">Скачать картинку</span>
-  </a>
+    <button class="ad__dl" data-dl="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/884f2eb1-dfdb-42be-8b2f-113a6e13c64f.jpg" data-name="versal-brekety.jpg">Скачать картинку</button>
+  </div>
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>47/56</em></span>
       <div class="f__v" data-copy>Брекеты взрослым — ровные зубы в любом возрасте</div></div>
@@ -238,10 +243,10 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
 </article>
 <article class="ad">
   <div class="ad__num">11</div>
-  <a class="ad__pic" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/159d63b0-27e8-42e2-91a8-1fa8667ac828.jpg" download target="_blank" rel="noopener">
+  <div class="ad__pic">
     <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/159d63b0-27e8-42e2-91a8-1fa8667ac828.jpg" alt="" loading="lazy">
-    <span class="ad__dl">Скачать картинку</span>
-  </a>
+    <button class="ad__dl" data-dl="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/159d63b0-27e8-42e2-91a8-1fa8667ac828.jpg" data-name="versal-elaynery.jpg">Скачать картинку</button>
+  </div>
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>36/56</em></span>
       <div class="f__v" data-copy>Элайнеры — выравнивание без брекетов</div></div>
@@ -257,10 +262,10 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
 </article>
 <article class="ad">
   <div class="ad__num">12</div>
-  <a class="ad__pic" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/a0a19556-ed95-41a9-b68d-300794fd9c86.jpg" download target="_blank" rel="noopener">
+  <div class="ad__pic">
     <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/a0a19556-ed95-41a9-b68d-300794fd9c86.jpg" alt="" loading="lazy">
-    <span class="ad__dl">Скачать картинку</span>
-  </a>
+    <button class="ad__dl" data-dl="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/a0a19556-ed95-41a9-b68d-300794fd9c86.jpg" data-name="versal-otbelivanie.jpg">Скачать картинку</button>
+  </div>
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>39/56</em></span>
       <div class="f__v" data-copy>Отбеливание Amazing White за один визит</div></div>
@@ -276,10 +281,10 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
 </article>
 <article class="ad">
   <div class="ad__num">13</div>
-  <a class="ad__pic" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/9bb6cb69-7234-4661-8d40-96ed0bec439a.jpg" download target="_blank" rel="noopener">
+  <div class="ad__pic">
     <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/9bb6cb69-7234-4661-8d40-96ed0bec439a.jpg" alt="" loading="lazy">
-    <span class="ad__dl">Скачать картинку</span>
-  </a>
+    <button class="ad__dl" data-dl="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/9bb6cb69-7234-4661-8d40-96ed0bec439a.jpg" data-name="versal-desny.jpg">Скачать картинку</button>
+  </div>
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>34/56</em></span>
       <div class="f__v" data-copy>Кровоточат дёсны? Лечим пародонтит</div></div>
@@ -295,10 +300,10 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
 </article>
 <article class="ad">
   <div class="ad__num">14</div>
-  <a class="ad__pic" href="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/e961f151-4355-4d28-9ff1-ad10ba91766d.jpg" download target="_blank" rel="noopener">
+  <div class="ad__pic">
     <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/e961f151-4355-4d28-9ff1-ad10ba91766d.jpg" alt="" loading="lazy">
-    <span class="ad__dl">Скачать картинку</span>
-  </a>
+    <button class="ad__dl" data-dl="https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/e961f151-4355-4d28-9ff1-ad10ba91766d.jpg" data-name="versal-restavraciya.jpg">Скачать картинку</button>
+  </div>
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>42/56</em></span>
       <div class="f__v" data-copy>Скол переднего зуба — реставрация за визит</div></div>
@@ -317,6 +322,26 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
 ч. 7 ст. 24 ФЗ «О рекламе» — не обрезайте нижнюю полосу.</footer>
 </div>
 <script>
+// Скачивание по кнопке: атрибут download на чужой домен браузер игнорирует,
+// поэтому тянем файл через fetch (CDN отдаёт Access-Control-Allow-Origin: *)
+// и сохраняем blob под понятным именем. Если сеть/CORS подвели — открываем
+// картинку в новой вкладке, чтобы кнопка не оказалась мёртвой.
+document.querySelectorAll('[data-dl]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var url = btn.dataset.dl, name = btn.dataset.name, txt = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Скачиваю…';
+    fetch(url).then(function(r){ return r.blob(); }).then(function(b){
+      var u = URL.createObjectURL(b), a = document.createElement('a');
+      a.href = u; a.download = name; document.body.appendChild(a); a.click();
+      a.remove(); setTimeout(function(){ URL.revokeObjectURL(u); }, 4000);
+      btn.textContent = 'Готово ✓';
+      setTimeout(function(){ btn.textContent = txt; btn.disabled = false; }, 1400);
+    }).catch(function(){
+      window.open(url, '_blank');
+      btn.textContent = txt; btn.disabled = false;
+    });
+  });
+});
 document.querySelectorAll('[data-copy]').forEach(function(el){
   el.addEventListener('click', function(){
     navigator.clipboard.writeText(el.innerText.trim()).then(function(){
