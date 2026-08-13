@@ -1,0 +1,184 @@
+{
+ "sections": [
+  {
+   "title": "Акции",
+   "kind": "promo",
+   "note": "Первая акция попадает в Карты — туда самый универсальный оффер. Лимиты формы: анонс ≤70, описание ≤200 символов.",
+   "labels": {
+    "title": "Анонс",
+    "desc": "Описание"
+   },
+   "limits": {
+    "title": 70,
+    "desc": 200
+   },
+   "items": [
+    {
+     "key": "1-kt-plan",
+     "title": "КТ двух челюстей + план лечения — 4 200 ₽ вместо 7 500 ₽",
+     "desc": "Компьютерная томография двух челюстей, осмотр и письменный план лечения с фиксированными ценами. План действует 30 дней. При заключении договора на лечение — КТ и план бесплатно.",
+     "price": "",
+     "link": "https://versal-dent.ru/promotions.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/d8b1c6a8-4e52-4599-b0b3-79697f6f2d84.jpg"
+    },
+    {
+     "key": "2-amazing-white",
+     "title": "Отбеливание Amazing White — 17 500 ₽ вместо 25 000 ₽",
+     "desc": "Кабинетное отбеливание до 6–8 тонов за один визит (около часа). Обе челюсти «под ключ»: защита дёсен, отбеливающий гель и реминерализация эмали включены.",
+     "price": "",
+     "link": "https://versal-dent.ru/services/gigiena.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/0ee85f6d-b0ac-468f-819e-39df1e3f662a.jpg"
+    },
+    {
+     "key": "3-ortodont",
+     "title": "Консультация ортодонта с расчётом ТРГ — бесплатно",
+     "desc": "Первичная консультация ортодонта с расчётом ТРГ — 0 ₽ вместо 1 000 ₽. Подберём брекеты или элайнеры без обязательств.",
+     "price": "",
+     "link": "https://versal-dent.ru/services/ortodontiya.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/0504a724-bd20-4a8d-a1bc-14b644dba9ff.jpg"
+    },
+    {
+     "key": "4-implant",
+     "title": "Каждый третий имплант — в подарок",
+     "desc": "При установке нескольких имплантатов каждый третий — бесплатно. Гарантия на имплантаты до 10 лет по договору.",
+     "price": "",
+     "link": "https://versal-dent.ru/services/implantaciya.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/60f783a1-ebc0-46fc-9755-1abf6c0fbf44.jpg"
+    },
+    {
+     "key": "5-chistka",
+     "title": "Профессиональная чистка в подарок при имплантации и брекетах",
+     "desc": "Комплексная гигиена (Air Flow + ультразвук + полировка) в подарок при заключении договора на имплантацию или брекеты. Экономия 5 000 ₽.",
+     "price": "",
+     "link": "https://versal-dent.ru/services/gigiena.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/53a658ea-9a94-4807-a116-a564d21fcb2b.jpg"
+    },
+    {
+     "key": "6-lgoty",
+     "title": "Скидка 10% пенсионерам, многодетным и военнослужащим",
+     "desc": "Скидка 10% на лечение, протезирование и гигиену по предъявлении удостоверения. Действует постоянно, не суммируется с другими акциями.",
+     "price": "",
+     "link": "https://versal-dent.ru/promotions.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/bd0729dd-fe22-46d3-87e0-7261637b4032.jpg"
+    },
+    {
+     "key": "7-semya",
+     "title": "Семейная программа: скидка от 3 до 10% всем членам семьи",
+     "desc": "При лечении трёх и более членов семьи — скидка от 3 до 10% каждому, на все услуги клиники.",
+     "price": "",
+     "link": "https://versal-dent.ru/promotions.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/0f403d4b-6a48-424f-9660-04ff586792fb.jpg"
+    }
+   ]
+  },
+  {
+   "title": "Витрина (товары и услуги)",
+   "kind": "showcase",
+   "note": "В форме витрины всего четыре поля: название (≤56), цена, ссылка и фото — описания там нет. Заливать по порядку: первые позиции видны без скролла.",
+   "labels": {
+    "title": "Название"
+   },
+   "limits": {
+    "title": 56
+   },
+   "items": [
+    {
+     "key": "vitrina-1",
+     "title": "Комплексная чистка зубов",
+     "desc": "",
+     "price": "5000",
+     "link": "https://versal-dent.ru/services/gigiena.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/604f1684-ec4f-47f3-aee8-a3222cd6d10c.jpg"
+    },
+    {
+     "key": "vitrina-2",
+     "title": "КТ + план лечения",
+     "desc": "",
+     "price": "4200",
+     "link": "https://versal-dent.ru/promotions.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/e566295a-b8b5-4e4a-a6c7-f12b8c659569.jpg"
+    },
+    {
+     "key": "vitrina-3",
+     "title": "Консультация ортодонта — бесплатно",
+     "desc": "",
+     "price": "",
+     "link": "https://versal-dent.ru/services/ortodontiya.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/e66256ea-5c49-4226-8fb1-363820c57e44.jpg"
+    },
+    {
+     "key": "vitrina-4",
+     "title": "Детский стоматолог — лечение молочного зуба",
+     "desc": "",
+     "price": "1500",
+     "link": "https://versal-dent.ru/services/detskaya.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/41eae2f3-79d1-4f29-a715-4d8f46fc130e.jpg"
+    },
+    {
+     "key": "vitrina-5",
+     "title": "Лечение кариеса",
+     "desc": "",
+     "price": "5500",
+     "link": "https://versal-dent.ru/services/terapiya.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/d0e95052-5c6d-44cb-92d4-ead1e45af339.jpg"
+    },
+    {
+     "key": "vitrina-6",
+     "title": "Лечение дёсен — кюретаж, 1 зуб",
+     "desc": "",
+     "price": "800",
+     "link": "https://versal-dent.ru/services/parodontologiya.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/871830a9-1e2f-4d28-ade8-fb6922cecd3d.jpg"
+    },
+    {
+     "key": "vitrina-7",
+     "title": "Удаление зуба",
+     "desc": "",
+     "price": "4500",
+     "link": "https://versal-dent.ru/services/hirurgiya.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/f27e7ea2-008a-4d44-8c4f-7c1fd29df210.jpg"
+    },
+    {
+     "key": "vitrina-8",
+     "title": "Отбеливание зубов за 1 визит",
+     "desc": "",
+     "price": "17500",
+     "link": "https://versal-dent.ru/services/gigiena.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/6507003e-991f-4171-98a7-291917185792.jpg"
+    },
+    {
+     "key": "vitrina-9",
+     "title": "Виниры — композитный винир от",
+     "desc": "",
+     "price": "7500",
+     "link": "https://versal-dent.ru/services/viniry.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/dda83491-e5ef-4d5e-aa0c-0bfddc69f997.jpg"
+    },
+    {
+     "key": "vitrina-10",
+     "title": "Протезирование — коронка от",
+     "desc": "",
+     "price": "12000",
+     "link": "https://versal-dent.ru/services/protezirovanie.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/3ca7fcc3-a7b4-4e81-ba0d-6a28a2ce3019.jpg"
+    },
+    {
+     "key": "vitrina-11",
+     "title": "Имплантация — установка импланта от",
+     "desc": "",
+     "price": "28000",
+     "link": "https://versal-dent.ru/services/implantaciya.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/29ebd102-9df0-4ebf-89c3-09c0a6eaa7a2.jpg"
+    },
+    {
+     "key": "vitrina-12",
+     "title": "Брекеты под ключ — цены от",
+     "desc": "",
+     "price": "35000",
+     "link": "https://versal-dent.ru/services/ortodontiya.html",
+     "img": "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/7f1e170f-226e-4d54-83fa-7a8d7d398fec.jpg"
+    }
+   ]
+  }
+ ]
+}
