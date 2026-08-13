@@ -14,7 +14,6 @@ h1{font:600 34px/1.2 'Playfair Display',Georgia,serif;margin:0 0 8px}
 .sub{color:#6b6055;margin:0 0 26px}
 .note{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);
   padding:16px 18px;border-radius:10px;margin:0 0 30px}
-.note b{color:var(--espresso)}
 .ad{display:grid;grid-template-columns:190px 1fr;gap:20px;background:#fff;border:1px solid var(--line);
   border-radius:14px;padding:18px;margin:0 0 16px;position:relative}
 .ad__num{position:absolute;left:-11px;top:18px;width:26px;height:26px;border-radius:50%;
@@ -32,14 +31,19 @@ h1{font:600 34px/1.2 'Playfair Display',Georgia,serif;margin:0 0 8px}
 .f__v i{color:#a89c8c}
 .f2{display:grid;grid-template-columns:150px 1fr;gap:14px;margin-bottom:0}
 footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--line);padding-top:18px}
-@media(max-width:720px){.ad{grid-template-columns:1fr}.ad__pic img{width:100%;height:auto}.f2{grid-template-columns:1fr}}
+@media(max-width:720px){.ad{grid-template-columns:1fr}.ad__pic img{width:100%;height:auto}
+  .f2{grid-template-columns:1fr}}
 </style></head><body><div class="wrap">
 <h1>Свои объявления Яндекс.Бизнеса — «Версаль»</h1>
-<p class="sub">14 объявлений: заголовок, описание, цена, ссылка и картинка. Клик по полю копирует текст, клик по картинке — скачивает.</p>
+<p class="sub">14 объявлений: заголовок, описание, цена, ссылка и картинка.
+Клик по полю копирует текст, клик по картинке — скачивает.</p>
 <div class="note">
-  <b>Заливать снизу вверх</b> — с №14 к №1. Свежие объявления показываются первыми, поэтому
-  самые сильные офферы (боль, КТ + план, имплант) должны попасть в кабинет последними.<br>
-  <b>Срок размещения не ставить</b> — объявления вечные, их не придётся переделывать.
+  <b>Заливать снизу вверх</b> — с №14 к №1. Свежие объявления показываются первыми,
+  поэтому самые сильные офферы (боль, КТ + план, имплант) должны попасть в кабинет последними.<br>
+  <b>В поле «Цена» — только число.</b> «От» кабинет не принимает, а в заголовке цену
+  не дублируем — она и так видна в карточке. Где цена может ввести в заблуждение
+  (пародонтология: 800 ₽ — это за один зуб), поле оставляем пустым.<br>
+  <b>Срок размещения не ставить</b> — объявления вечные, переделывать их не придётся.
 </div>
 
 <article class="ad">
@@ -49,13 +53,13 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
     <span class="ad__dl">Скачать картинку</span>
   </a>
   <div class="ad__body">
-    <div class="f"><span class="f__k">Заголовок <em>38/56</em></span>
-      <div class="f__v" data-copy>Лечение кариеса в Реутове — от 5 500 ₽</div></div>
-    <div class="f"><span class="f__k">Описание <em>68/81</em></span>
-      <div class="f__v" data-copy>Пломба за один визит, анестезия без боли. Цены фиксируем в договоре.</div></div>
+    <div class="f"><span class="f__k">Заголовок <em>39/56</em></span>
+      <div class="f__v" data-copy>Лечение кариеса в Реутове за один визит</div></div>
+    <div class="f"><span class="f__k">Описание <em>63/81</em></span>
+      <div class="f__v" data-copy>Пломба за визит, анестезия без боли. Цены фиксируем в договоре.</div></div>
     <div class="f2">
       <div class="f"><span class="f__k">Цена</span>
-        <div class="f__v" data-copy>от 5 500 ₽</div></div>
+        <div class="f__v" data-copy>5 500 ₽</div></div>
       <div class="f"><span class="f__k">Ссылка</span>
         <div class="f__v" data-copy>https://versal-dent.ru/services/terapiya.html</div></div>
     </div>
@@ -70,11 +74,11 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>45/56</em></span>
       <div class="f__v" data-copy>Лечение каналов — сохраняем зуб, а не удаляем</div></div>
-    <div class="f"><span class="f__k">Описание <em>68/81</em></span>
-      <div class="f__v" data-copy>Пульпит и периодонтит под контролем КТ. От 7 000 ₽, у м. Новокосино.</div></div>
+    <div class="f"><span class="f__k">Описание <em>64/81</em></span>
+      <div class="f__v" data-copy>Пульпит и периодонтит под контролем КТ. Реутов, у м. Новокосино.</div></div>
     <div class="f2">
       <div class="f"><span class="f__k">Цена</span>
-        <div class="f__v" data-copy>от 7 000 ₽</div></div>
+        <div class="f__v" data-copy>7 000 ₽</div></div>
       <div class="f"><span class="f__k">Ссылка</span>
         <div class="f__v" data-copy>https://versal-dent.ru/services/terapiya.html</div></div>
     </div>
@@ -93,7 +97,7 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
       <div class="f__v" data-copy>Ежедневно 10:00–20:00, 10 минут от м. Новокосино. Снимем боль сразу.</div></div>
     <div class="f2">
       <div class="f"><span class="f__k">Цена</span>
-        <div class="f__v" data-copy><i>не заполнять</i></div></div>
+        <div class="f__v" data-copy><i>оставить пустым</i></div></div>
       <div class="f"><span class="f__k">Ссылка</span>
         <div class="f__v" data-copy>https://versal-dent.ru/contacts.html</div></div>
     </div>
@@ -106,13 +110,13 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
     <span class="ad__dl">Скачать картинку</span>
   </a>
   <div class="ad__body">
-    <div class="f"><span class="f__k">Заголовок <em>35/56</em></span>
-      <div class="f__v" data-copy>Удаление зуба мудрости — от 9 500 ₽</div></div>
+    <div class="f"><span class="f__k">Заголовок <em>32/56</em></span>
+      <div class="f__v" data-copy>Удаление зуба мудрости в Реутове</div></div>
     <div class="f"><span class="f__k">Описание <em>58/81</em></span>
       <div class="f__v" data-copy>Даже сложное: по КТ, с анестезией и планом восстановления.</div></div>
     <div class="f2">
       <div class="f"><span class="f__k">Цена</span>
-        <div class="f__v" data-copy>от 9 500 ₽</div></div>
+        <div class="f__v" data-copy>9 500 ₽</div></div>
       <div class="f"><span class="f__k">Ссылка</span>
         <div class="f__v" data-copy>https://versal-dent.ru/services/hirurgiya.html</div></div>
     </div>
@@ -126,9 +130,9 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
   </a>
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>38/56</em></span>
-      <div class="f__v" data-copy>КТ + письменный план лечения — 4 200 ₽</div></div>
-    <div class="f"><span class="f__k">Описание <em>64/81</em></span>
-      <div class="f__v" data-copy>Вместо 7 500 ₽. Увидите свою ситуацию и точную смету до лечения.</div></div>
+      <div class="f__v" data-copy>КТ и письменный план лечения со сметой</div></div>
+    <div class="f"><span class="f__k">Описание <em>63/81</em></span>
+      <div class="f__v" data-copy>Вместо 7 500 ₽. Увидите свою ситуацию и точные цены до лечения.</div></div>
     <div class="f2">
       <div class="f"><span class="f__k">Цена</span>
         <div class="f__v" data-copy>4 200 ₽</div></div>
@@ -144,13 +148,13 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
     <span class="ad__dl">Скачать картинку</span>
   </a>
   <div class="ad__body">
-    <div class="f"><span class="f__k">Заголовок <em>33/56</em></span>
-      <div class="f__v" data-copy>Циркониевая коронка — от 22 000 ₽</div></div>
-    <div class="f"><span class="f__k">Описание <em>70/81</em></span>
-      <div class="f__v" data-copy>Прочная, не отличить от своего зуба. Цифровой слепок без массы во рту.</div></div>
+    <div class="f"><span class="f__k">Заголовок <em>34/56</em></span>
+      <div class="f__v" data-copy>Циркониевая коронка — как свой зуб</div></div>
+    <div class="f"><span class="f__k">Описание <em>66/81</em></span>
+      <div class="f__v" data-copy>Прочная, не отличить от родного. Цифровой слепок без массы во рту.</div></div>
     <div class="f2">
       <div class="f"><span class="f__k">Цена</span>
-        <div class="f__v" data-copy>от 22 000 ₽</div></div>
+        <div class="f__v" data-copy>22 000 ₽</div></div>
       <div class="f"><span class="f__k">Ссылка</span>
         <div class="f__v" data-copy>https://versal-dent.ru/services/protezirovanie.html</div></div>
     </div>
@@ -163,13 +167,13 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
     <span class="ad__dl">Скачать картинку</span>
   </a>
   <div class="ad__body">
-    <div class="f"><span class="f__k">Заголовок <em>41/56</em></span>
-      <div class="f__v" data-copy>Имплант с коронкой под ключ — от 45 000 ₽</div></div>
+    <div class="f"><span class="f__k">Заголовок <em>35/56</em></span>
+      <div class="f__v" data-copy>Имплант с коронкой под ключ, Реутов</div></div>
     <div class="f"><span class="f__k">Описание <em>65/81</em></span>
       <div class="f__v" data-copy>Фиксированная цена: имплант, абатмент и коронка. Osstem, Dentium.</div></div>
     <div class="f2">
       <div class="f"><span class="f__k">Цена</span>
-        <div class="f__v" data-copy>от 45 000 ₽</div></div>
+        <div class="f__v" data-copy>45 000 ₽</div></div>
       <div class="f"><span class="f__k">Ссылка</span>
         <div class="f__v" data-copy>https://versal-dent.ru/services/implantaciya.html</div></div>
     </div>
@@ -183,12 +187,12 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
   </a>
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>38/56</em></span>
-      <div class="f__v" data-copy>Все зубы на 4 имплантах — от 120 000 ₽</div></div>
+      <div class="f__v" data-copy>Все зубы на 4 имплантах — за один этап</div></div>
     <div class="f"><span class="f__k">Описание <em>58/81</em></span>
       <div class="f__v" data-copy>Несъёмный протез вместо съёмного. Вернём жевание и улыбку.</div></div>
     <div class="f2">
       <div class="f"><span class="f__k">Цена</span>
-        <div class="f__v" data-copy>от 120 000 ₽</div></div>
+        <div class="f__v" data-copy>120 000 ₽</div></div>
       <div class="f"><span class="f__k">Ссылка</span>
         <div class="f__v" data-copy>https://versal-dent.ru/services/implantaciya.html</div></div>
     </div>
@@ -201,13 +205,13 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
     <span class="ad__dl">Скачать картинку</span>
   </a>
   <div class="ad__body">
-    <div class="f"><span class="f__k">Заголовок <em>36/56</em></span>
-      <div class="f__v" data-copy>Съёмный протез — от 28 000 ₽, Реутов</div></div>
+    <div class="f"><span class="f__k">Заголовок <em>38/56</em></span>
+      <div class="f__v" data-copy>Съёмный протез в Реутове, у Новокосино</div></div>
     <div class="f"><span class="f__k">Описание <em>58/81</em></span>
       <div class="f__v" data-copy>Акрил, нейлон или бюгель. Подберём тот, что удобно носить.</div></div>
     <div class="f2">
       <div class="f"><span class="f__k">Цена</span>
-        <div class="f__v" data-copy>от 28 000 ₽</div></div>
+        <div class="f__v" data-copy>28 000 ₽</div></div>
       <div class="f"><span class="f__k">Ссылка</span>
         <div class="f__v" data-copy>https://versal-dent.ru/services/protezirovanie.html</div></div>
     </div>
@@ -220,13 +224,13 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
     <span class="ad__dl">Скачать картинку</span>
   </a>
   <div class="ad__body">
-    <div class="f"><span class="f__k">Заголовок <em>41/56</em></span>
-      <div class="f__v" data-copy>Брекеты взрослым — от 35 000 ₽ за челюсть</div></div>
-    <div class="f"><span class="f__k">Описание <em>69/81</em></span>
-      <div class="f__v" data-copy>Ровные зубы и в 30, и в 45. Консультация ортодонта с ТРГ — бесплатно.</div></div>
+    <div class="f"><span class="f__k">Заголовок <em>47/56</em></span>
+      <div class="f__v" data-copy>Брекеты взрослым — ровные зубы в любом возрасте</div></div>
+    <div class="f"><span class="f__k">Описание <em>57/81</em></span>
+      <div class="f__v" data-copy>И в 30, и в 45. Консультация ортодонта с ТРГ — бесплатно.</div></div>
     <div class="f2">
       <div class="f"><span class="f__k">Цена</span>
-        <div class="f__v" data-copy>от 35 000 ₽</div></div>
+        <div class="f__v" data-copy>35 000 ₽</div></div>
       <div class="f"><span class="f__k">Ссылка</span>
         <div class="f__v" data-copy>https://versal-dent.ru/services/ortodontiya.html</div></div>
     </div>
@@ -241,11 +245,11 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
   <div class="ad__body">
     <div class="f"><span class="f__k">Заголовок <em>36/56</em></span>
       <div class="f__v" data-copy>Элайнеры — выравнивание без брекетов</div></div>
-    <div class="f"><span class="f__k">Описание <em>67/81</em></span>
-      <div class="f__v" data-copy>Прозрачные капы, незаметны на работе и встречах. Курс от 120 000 ₽.</div></div>
+    <div class="f"><span class="f__k">Описание <em>51/81</em></span>
+      <div class="f__v" data-copy>Прозрачные капы, незаметны на работе и на встречах.</div></div>
     <div class="f2">
       <div class="f"><span class="f__k">Цена</span>
-        <div class="f__v" data-copy>от 120 000 ₽</div></div>
+        <div class="f__v" data-copy>120 000 ₽</div></div>
       <div class="f"><span class="f__k">Ссылка</span>
         <div class="f__v" data-copy>https://versal-dent.ru/services/ortodontiya.html</div></div>
     </div>
@@ -258,10 +262,10 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
     <span class="ad__dl">Скачать картинку</span>
   </a>
   <div class="ad__body">
-    <div class="f"><span class="f__k">Заголовок <em>36/56</em></span>
-      <div class="f__v" data-copy>Отбеливание Amazing White — 17 500 ₽</div></div>
-    <div class="f"><span class="f__k">Описание <em>69/81</em></span>
-      <div class="f__v" data-copy>Вместо 25 000 ₽. До 6–8 тонов за визит, обе челюсти, с защитой эмали.</div></div>
+    <div class="f"><span class="f__k">Заголовок <em>39/56</em></span>
+      <div class="f__v" data-copy>Отбеливание Amazing White за один визит</div></div>
+    <div class="f"><span class="f__k">Описание <em>60/81</em></span>
+      <div class="f__v" data-copy>Вместо 25 000 ₽. До 6–8 тонов, обе челюсти, с защитой эмали.</div></div>
     <div class="f2">
       <div class="f"><span class="f__k">Цена</span>
         <div class="f__v" data-copy>17 500 ₽</div></div>
@@ -283,7 +287,7 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
       <div class="f__v" data-copy>Чистка карманов, Vector-терапия, шинирование. Остановим подвижность.</div></div>
     <div class="f2">
       <div class="f"><span class="f__k">Цена</span>
-        <div class="f__v" data-copy>от 800 ₽</div></div>
+        <div class="f__v" data-copy><i>оставить пустым</i></div></div>
       <div class="f"><span class="f__k">Ссылка</span>
         <div class="f__v" data-copy>https://versal-dent.ru/services/parodontologiya.html</div></div>
     </div>
@@ -296,27 +300,26 @@ footer{margin-top:34px;color:#8d8175;font-size:14px;border-top:1px solid var(--l
     <span class="ad__dl">Скачать картинку</span>
   </a>
   <div class="ad__body">
-    <div class="f"><span class="f__k">Заголовок <em>44/56</em></span>
-      <div class="f__v" data-copy>Скол переднего зуба — реставрация от 8 000 ₽</div></div>
-    <div class="f"><span class="f__k">Описание <em>62/81</em></span>
-      <div class="f__v" data-copy>Восстановим форму и цвет за один визит. Незаметно даже вблизи.</div></div>
+    <div class="f"><span class="f__k">Заголовок <em>42/56</em></span>
+      <div class="f__v" data-copy>Скол переднего зуба — реставрация за визит</div></div>
+    <div class="f"><span class="f__k">Описание <em>48/81</em></span>
+      <div class="f__v" data-copy>Восстановим форму и цвет. Незаметно даже вблизи.</div></div>
     <div class="f2">
       <div class="f"><span class="f__k">Цена</span>
-        <div class="f__v" data-copy>от 8 000 ₽</div></div>
+        <div class="f__v" data-copy>8 000 ₽</div></div>
       <div class="f"><span class="f__k">Ссылка</span>
         <div class="f__v" data-copy>https://versal-dent.ru/services/terapiya.html</div></div>
     </div>
   </div>
 </article>
-<footer>Цены сверены с сайтом versal-dent.ru (раздел «Цены» и «Акции»). Изменилась цена на сайте —
+<footer>Цены сверены с сайтом versal-dent.ru («Цены» и «Акции»). Изменилась цена на сайте —
 поменяйте её в объявлении. Строка «Имеются противопоказания…» на картинках обязательна по
 ч. 7 ст. 24 ФЗ «О рекламе» — не обрезайте нижнюю полосу.</footer>
 </div>
 <script>
 document.querySelectorAll('[data-copy]').forEach(function(el){
   el.addEventListener('click', function(){
-    var t = el.innerText.trim();
-    navigator.clipboard.writeText(t).then(function(){
+    navigator.clipboard.writeText(el.innerText.trim()).then(function(){
       el.classList.add('copied');
       setTimeout(function(){ el.classList.remove('copied'); }, 900);
     });
