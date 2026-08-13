@@ -7,9 +7,18 @@
 витрине, в отличие от акций и публикаций).
 
 Что делает скрипт: берёт кадры Higgsfield из `bg/`, режет в квадрат
-1200×1200, кладёт водяной знак клиники и обязательную по ст. 24 ФЗ «О
-рекламе» строку о противопоказаниях (реклама медуслуг — в отличие от
-фото карточки, где надписи запрещены модерацией).
+1200×1200 и впечатывает обязательную по ч. 7 ст. 24 ФЗ «О рекламе»
+строку о противопоказаниях (реклама медуслуг; закон требует отдать под
+неё **не менее 5 % площади** — отсюда высота полосы 5,2 %).
+
+⚠️ Водяного знака здесь НЕТ (решение владельца, 13.08.2026): в
+объявлении бренд и так виден по домену в карточке, а знак поверх лица
+удешевляет кадр. Знак остаётся в витрине, портфолио и Дзене.
+
+⚠️ Кадры — только «живые», с лицами (решение владельца, 13.08.2026):
+предметные макро (инструменты, коронка, модель челюсти с имплантом)
+выглядели искусственно и не привлекали внимание. Лицо + естественная
+эмоция работают лучше всего.
 
 Тексты объявлений — в `TEXTS.md` (источник цен: сайт, ceny.html).
 
@@ -22,12 +31,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 BG = os.path.join(HERE, 'bg')
 OUT = os.path.join(HERE, 'out')
 FONTS = os.path.join(HERE, 'fonts')          # фирменный Manrope (Google Fonts)
-WM = os.path.join(HERE, '..', '..', 'assets', 'img', 'watermark.png')
 os.makedirs(OUT, exist_ok=True)
 
 SIDE = 1200
 DISCLAIMER = 'Имеются противопоказания, необходима консультация специалиста'
-WM_FRAC = 0.16              # доля короткой стороны; витринные 0.18, портфолио 0.4286
 
 # ключ → (файл фона, вертикальный акцент кропа: 0 — верх, 0.5 — центр)
 SHOTS = [
@@ -60,17 +67,6 @@ def square(im, focus=0.45):
     return im.resize((SIDE, SIDE), Image.LANCZOS)
 
 
-def watermark(im):
-    wm = Image.open(WM).convert('RGBA')
-    s = round(min(im.size) * WM_FRAC)
-    wm = wm.resize((s, s), Image.LANCZOS)
-    a = wm.split()[3].point(lambda v: round(v * 0.72))
-    wm.putalpha(a)
-    pad = round(SIDE * 0.035)
-    im.paste(wm, (SIDE - s - pad, SIDE - s - pad - round(SIDE * 0.045)), wm)
-    return im
-
-
 def disclaimer(im):
     """мелкая строка по нижнему краю на затемнённой подложке"""
     d = ImageDraw.Draw(im, 'RGBA')
@@ -91,7 +87,6 @@ if __name__ == '__main__':
         if not os.path.exists(p):
             print('нет фона:', src); continue
         im = square(Image.open(p).convert('RGB'), focus)
-        im = watermark(im)
         im = disclaimer(im)
         im.save(os.path.join(OUT, f'versal-ad-{key}.jpg'), quality=92, subsampling=0)
         n += 1
