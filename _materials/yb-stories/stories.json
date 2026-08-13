@@ -1,0 +1,66 @@
+{
+ "title": "Истории (сторис)",
+ "items": [
+  {
+   "key": "ist1",
+   "title": "Не страшно",
+   "btn": "Записаться",
+   "link": "https://versal-dent.ru/contacts.html",
+   "about": "Про страх боли: анестезия, спокойный приём, можно остановиться в любой момент.",
+   "imgs": [
+    "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/ef6d33b7-f3c2-4801-be79-6ffaac0dd57f.jpg",
+    "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/94182812-f7bd-455a-8836-d494c5623b4b.jpg",
+    "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/42265229-80fb-4bcd-b5f7-b9268ac73a0f.jpg"
+   ]
+  },
+  {
+   "key": "ist2",
+   "title": "Цены честно",
+   "btn": "Смотреть цены",
+   "link": "https://versal-dent.ru/ceny.html",
+   "about": "Смета до начала лечения, цены фиксируются в договоре и не растут по ходу.",
+   "imgs": [
+    "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/079b7b5c-94e1-4bcf-9662-13eb8c0500fc.jpg",
+    "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/82e7e6e6-1605-4988-ae22-ea09c5fb3824.jpg",
+    "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/15431c6c-f7c7-4975-ba48-10f6d87852f5.jpg"
+   ]
+  },
+  {
+   "key": "ist3",
+   "title": "Технологии",
+   "btn": "Подробнее",
+   "link": "https://versal-dent.ru/tehnologii.html",
+   "about": "КТ, цифровое сканирование, DSD, стерилизация класса B.",
+   "imgs": [
+    "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/77ccf1dc-b967-491a-a198-e09b92fb601c.jpg",
+    "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/1813b5f1-4d76-48b6-9322-1d390755de01.jpg",
+    "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/5e841068-eb3a-4004-93a3-564a56b2f79c.jpg"
+   ]
+  },
+  {
+   "key": "ist4",
+   "title": "Наши врачи",
+   "btn": "Врачи",
+   "link": "https://versal-dent.ru/doctors/",
+   "about": "Реальные врачи клиники — единственная история, где показываем настоящие лица.",
+   "imgs": [
+    "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/c86aca1d-202b-457c-9d3a-147548d3146c.jpg",
+    "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/2d684d1a-cbd0-46c4-a545-0fba5553e518.jpg",
+    "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/78027e43-8c99-45dc-a1dd-c74d5384e006.jpg",
+    "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/954c7094-ba3b-4727-8296-d192052f46db.jpg"
+   ]
+  },
+  {
+   "key": "ist5",
+   "title": "Первый визит",
+   "btn": "Записаться",
+   "link": "https://versal-dent.ru/etapy.html",
+   "about": "Как проходит первый приём: осмотр, снимок, план и смета.",
+   "imgs": [
+    "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/775c7b6d-b559-4078-a1b2-5fc786a65783.jpg",
+    "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/e3b8c67f-3acf-4889-a74f-d592ca37bbdd.jpg",
+    "https://d2ol7oe51mr4n9.cloudfront.net/user_3Di09CVa1BatdZIdE0tir1KKUxw/b28d28a4-4337-4c00-aca0-8949cce1cfed.jpg"
+   ]
+  }
+ ]
+}
