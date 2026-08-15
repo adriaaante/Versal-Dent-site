@@ -583,6 +583,10 @@ p { margin: 0 0 1em; }
 .pf-tag { background: var(--c-primary-50); color: var(--c-primary); font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 100px; }
 .pf-meta { display: flex; gap: 14px; flex-wrap: wrap; color: var(--c-text-muted); font-size: 13px; padding-top: 6px; border-top: 1px dashed var(--c-border); }
 .pf-meta__item { display: inline-flex; align-items: center; gap: 4px; }
+/* Кейс проиллюстрирован типичной картиной, а не фото пациента: говорим
+   об этом на самой карточке — честнее, чем сноской под всем разделом. */
+.pf-meta__item--illu { padding: 2px 8px; border: 1px dashed currentColor;
+  border-radius: 999px; opacity: .8; font-size: .92em; }
 
 .pf-empty { text-align: center; padding: 40px 20px; background: #fff; border: 1px dashed var(--c-border-dark); border-radius: var(--radius); color: var(--c-text-muted); grid-column: 1 / -1; }
 .pf-empty svg { color: var(--c-primary-light); margin: 0 auto 12px; display: block; }
