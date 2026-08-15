@@ -37,9 +37,10 @@ AddDefaultCharset UTF-8
   ExpiresByType image/svg+xml "access plus 45 days"
   ExpiresByType image/x-icon "access plus 45 days"
   ExpiresByType font/woff2 "access plus 1 year"
-  # ⚠️ JS и CSS — БЕЗ длинного кеша. Дефолт reg.ru (45 дней) означал,
-  # что правка скрипта не доезжала до вернувшегося посетителя: у него
-  # оставались старое портфолио, старое меню, старые цели Метрики.
+  # ⚠️ JS и CSS. Директивы ниже на reg.ru НЕ срабатывают: статику этих
+  # типов отдаёт nginx перед Apache и жёстко ставит 45 дней (проверено
+  # 15.08.2026). Оставлены на случай переезда; реальное средство —
+  # хеш в ссылке, scripts/asset-version.py.
   ExpiresByType text/css "access plus 0 seconds"
   ExpiresByType application/javascript "access plus 0 seconds"
   ExpiresByType text/javascript "access plus 0 seconds"
