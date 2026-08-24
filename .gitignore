@@ -12,3 +12,6 @@ Thumbs.db
 # Создаётся один раз вручную из api/config.php.example
 # (см. CLAUDE.md, раздел «Форма заявки»).
 api/config.php
+
+# контактный лист сторожа ориентации сканов — служебный, в git не нужен
+assets/img/docs/_originals/_orientation-sheet.png
