@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shop version="2.0" date="2026-08-31 19:23">
+  <name>Версаль</name>
+  <company>ООО «АНГЕЛ-ДЕНТ»</company>
+  <url>https://versal-dent.ru/</url>
+  <picture>https://versal-dent.ru/assets/img/logo.png</picture>
+  <email>versal.dent@mail.ru</email>
+  <doctors>
+    <doctor id="drobkova">
+      <name>Дробкова Кристина Олеговна</name>
+      <url>https://versal-dent.ru/doctors/drobkova.html</url>
+      <surname>Дробкова</surname>
+      <first_name>Кристина</first_name>
+      <patronymic>Олеговна</patronymic>
+      <picture>https://versal-dent.ru/assets/img/doctors/drobkova.png</picture>
+      <description>Главный врач, стоматолог-ортодонт. Брекеты, элайнеры, исправление прикуса у взрослых и подростков.</description>
+    </doctor>
+    <doctor id="rustamov">
+      <name>Рустамов Эмиль Дилгамович</name>
+      <url>https://versal-dent.ru/doctors/rustamov.html</url>
+      <surname>Рустамов</surname>
+      <first_name>Эмиль</first_name>
+      <patronymic>Дилгамович</patronymic>
+      <picture>https://versal-dent.ru/assets/img/doctors/rustamov.png</picture>
+      <description>Стоматолог-ортопед. Протезирование зубов: коронки, виниры, протезы на имплантах.</description>
+    </doctor>
+    <doctor id="kilasoniya">
+      <name>Киласония Шорена Гиулиевна</name>
+      <url>https://versal-dent.ru/doctors/kilasoniya.html</url>
+      <surname>Киласония</surname>
+      <first_name>Шорена</first_name>
+      <patronymic>Гиулиевна</patronymic>
+      <picture>https://versal-dent.ru/assets/img/doctors/kilasoniya.png</picture>
+      <description>Стоматолог-хирург, терапевт. Удаление зубов любой сложности, зубосохраняющие операции, лечение кариеса.</description>
+    </doctor>
+    <doctor id="savchuk">
+      <name>Савчук Григорий Олегович</name>
+      <url>https://versal-dent.ru/doctors/savchuk.html</url>
+      <surname>Савчук</surname>
+      <first_name>Григорий</first_name>
+      <patronymic>Олегович</patronymic>
+      <picture>https://versal-dent.ru/assets/img/doctors/savchuk.png</picture>
+      <description>Стоматолог-хирург, имплантолог, ортопед. Имплантация, удаление зубов, протезирование на имплантах.</description>
+    </doctor>
+    <doctor id="burnaceva">
+      <name>Бурнацева Диана Алановна</name>
+      <url>https://versal-dent.ru/doctors/burnaceva.html</url>
+      <surname>Бурнацева</surname>
+      <first_name>Диана</first_name>
+      <patronymic>Алановна</patronymic>
+      <description>Стоматолог-терапевт, ортопед. Лечение кариеса и корневых каналов, реставрации, коронки и виниры.</description>
+    </doctor>
+    <doctor id="hachatryan">
+      <name>Хачатрян Карина Вачагановна</name>
+      <url>https://versal-dent.ru/doctors/hachatryan.html</url>
+      <surname>Хачатрян</surname>
+      <first_name>Карина</first_name>
+      <patronymic>Вачагановна</patronymic>
+      <picture>https://versal-dent.ru/assets/img/doctors/hachatryan.png</picture>
+      <description>Детский врач-стоматолог. Лечение и профилактика зубов у детей с 2 лет.</description>
+    </doctor>
+  </doctors>
+  <clinics>
+    <clinic id="clinic">
+      <name>Стоматология «Версаль»</name>
+      <url>https://versal-dent.ru/</url>
+      <picture>https://versal-dent.ru/assets/img/logo.png</picture>
+      <city>г. Реутов</city>
+      <address>Московская область, г. Реутов, ул. Победы, д. 22</address>
+      <email>versal.dent@mail.ru</email>
+      <phone>+79651885888</phone>
+      <company_id>107897418441</company_id>
+    </clinic>
+  </clinics>
+  <services>
+    <service id="konsultaciya-ortodonta">
+      <name>Консультация ортодонта</name>
+    </service>
+    <service id="konsultaciya">
+      <name>Первичная консультация с осмотром и планом лечения</name>
+    </service>
+    <service id="konsultaciya-detskaya">
+      <name>Консультация детского стоматолога и план лечения</name>
+    </service>
+  </services>
+  <offers>
+    <offer id="drobkova-konsultaciya-ortodonta">
+      <url>https://versal-dent.ru/doctors/drobkova.html</url>
+      <online_schedule>false</online_schedule>
+      <oms>false</oms>
+      <appointment>true</appointment>
+      <price>
+        <base_price>0</base_price>
+        <currency>RUR</currency>
+      </price>
+      <service id="konsultaciya-ortodonta" />
+      <clinic id="clinic">
+        <doctor id="drobkova">
+          <speciality>стоматолог-ортодонт</speciality>
+          <adult_appointment>true</adult_appointment>
+          <children_appointment>false</children_appointment>
+          <house_call>false</house_call>
+          <telemed>false</telemed>
+          <is_base_service>true</is_base_service>
+        </doctor>
+      </clinic>
+    </offer>
+    <offer id="rustamov-konsultaciya">
+      <url>https://versal-dent.ru/doctors/rustamov.html</url>
+      <online_schedule>false</online_schedule>
+      <oms>false</oms>
+      <appointment>true</appointment>
+      <price>
+        <base_price>1000</base_price>
+        <currency>RUR</currency>
+      </price>
+      <service id="konsultaciya" />
+      <clinic id="clinic">
+        <doctor id="rustamov">
+          <speciality>стоматолог-ортопед</speciality>
+          <adult_appointment>true</adult_appointment>
+          <children_appointment>false</children_appointment>
+          <house_call>false</house_call>
+          <telemed>false</telemed>
+          <is_base_service>true</is_base_service>
+        </doctor>
+      </clinic>
+    </offer>
+    <offer id="kilasoniya-konsultaciya">
+      <url>https://versal-dent.ru/doctors/kilasoniya.html</url>
+      <online_schedule>false</online_schedule>
+      <oms>false</oms>
+      <appointment>true</appointment>
+      <price>
+        <base_price>1000</base_price>
+        <currency>RUR</currency>
+      </price>
+      <service id="konsultaciya" />
+      <clinic id="clinic">
+        <doctor id="kilasoniya">
+          <speciality>стоматолог-хирург</speciality>
+          <adult_appointment>true</adult_appointment>
+          <children_appointment>false</children_appointment>
+          <house_call>false</house_call>
+          <telemed>false</telemed>
+          <is_base_service>true</is_base_service>
+        </doctor>
+      </clinic>
+    </offer>
+    <offer id="savchuk-konsultaciya">
+      <url>https://versal-dent.ru/doctors/savchuk.html</url>
+      <online_schedule>false</online_schedule>
+      <oms>false</oms>
+      <appointment>true</appointment>
+      <price>
+        <base_price>1000</base_price>
+        <currency>RUR</currency>
+      </price>
+      <service id="konsultaciya" />
+      <clinic id="clinic">
+        <doctor id="savchuk">
+          <speciality>стоматолог-хирург</speciality>
+          <adult_appointment>true</adult_appointment>
+          <children_appointment>false</children_appointment>
+          <house_call>false</house_call>
+          <telemed>false</telemed>
+          <is_base_service>true</is_base_service>
+        </doctor>
+      </clinic>
+    </offer>
+    <offer id="burnaceva-konsultaciya">
+      <url>https://versal-dent.ru/doctors/burnaceva.html</url>
+      <online_schedule>false</online_schedule>
+      <oms>false</oms>
+      <appointment>true</appointment>
+      <price>
+        <base_price>1000</base_price>
+        <currency>RUR</currency>
+      </price>
+      <service id="konsultaciya" />
+      <clinic id="clinic">
+        <doctor id="burnaceva">
+          <speciality>стоматолог-терапевт</speciality>
+          <adult_appointment>true</adult_appointment>
+          <children_appointment>false</children_appointment>
+          <house_call>false</house_call>
+          <telemed>false</telemed>
+          <is_base_service>true</is_base_service>
+        </doctor>
+      </clinic>
+    </offer>
+    <offer id="hachatryan-konsultaciya-detskaya">
+      <url>https://versal-dent.ru/doctors/hachatryan.html</url>
+      <online_schedule>false</online_schedule>
+      <oms>false</oms>
+      <appointment>true</appointment>
+      <price>
+        <base_price>1000</base_price>
+        <currency>RUR</currency>
+      </price>
+      <service id="konsultaciya-detskaya" />
+      <clinic id="clinic">
+        <doctor id="hachatryan">
+          <speciality>стоматолог</speciality>
+          <adult_appointment>false</adult_appointment>
+          <children_appointment>true</children_appointment>
+          <house_call>false</house_call>
+          <telemed>false</telemed>
+          <is_base_service>true</is_base_service>
+        </doctor>
+      </clinic>
+    </offer>
+  </offers>
+</shop>
