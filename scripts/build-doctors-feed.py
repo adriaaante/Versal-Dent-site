@@ -89,7 +89,7 @@ DOCTORS = [
      'check_price': ('ceny.html', 'Первичная консультация с осмотром и планом лечения')},
     {'slug': 'hachatryan', 'name': 'Хачатрян Карина Вачагановна',
      'speciality': 'стоматолог',      # «детского стоматолога» нет в перечне Яндекса
-     'adult': False, 'children': True,
+     'adult': False, 'children': True, 'experience_years': 8,
      'description': 'Детский врач-стоматолог. Лечение и профилактика зубов у детей с 2 лет.',
      'service': ('konsultaciya-detskaya', 'Консультация детского стоматолога и план лечения'),
      'price': 1000,
@@ -127,6 +127,8 @@ def build() -> ET.Element:
         if d.get('photo', True):
             ET.SubElement(doc, 'picture').text = \
                 f"{SHOP['url']}assets/img/doctors/{d['slug']}.png"
+        if d.get('experience_years'):
+            ET.SubElement(doc, 'experience_years').text = str(d['experience_years'])
         if d.get('description'):
             ET.SubElement(doc, 'description').text = d['description']
 
