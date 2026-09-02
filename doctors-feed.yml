@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<shop version="2.0" date="2026-09-01 14:43">
+<shop version="2.0" date="2026-09-02 12:59">
   <name>Версаль</name>
   <company>ООО «АНГЕЛ-ДЕНТ»</company>
   <url>https://versal-dent.ru/</url>
@@ -48,6 +48,7 @@
       <surname>Бурнацева</surname>
       <first_name>Диана</first_name>
       <patronymic>Алановна</patronymic>
+      <picture>https://versal-dent.ru/assets/img/doctors/burnaceva.png</picture>
       <experience_years>8</experience_years>
       <description>Стоматолог-терапевт, ортопед. Лечение кариеса и корневых каналов, реставрации, коронки и виниры.</description>
     </doctor>
