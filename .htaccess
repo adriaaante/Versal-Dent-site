@@ -90,7 +90,11 @@ AddDefaultCharset UTF-8
     RedirectMatch 301 ^/vrachi/smolyakova(-.*)?/?$           /doctors/smolyakova.html
     RedirectMatch 301 ^/vrachi/kilasoniya(-.*)?/?$           /doctors/kilasoniya.html
     RedirectMatch 301 ^/vrachi/savchuk(-.*)?/?$              /doctors/savchuk.html
-    RedirectMatch 301 ^/vrachi/kendabaeva(-.*)?/?$           /doctors/kendabaeva.html
+    RedirectMatch 301 ^/vrachi/kenzhabaeva(-.*)?/?$           /doctors/kenzhabaeva.html
+    # slug гигиениста переименован 06.09.2026: фамилия по документу — Кенжабаева
+    RedirectMatch 301 ^/vrachi/kendabaeva(-.*)?/?$           /doctors/kenzhabaeva.html
+    RedirectMatch 301 ^/doctors/kendabaeva\.html$            /doctors/kenzhabaeva.html
+    RedirectMatch 301 ^/assets/img/(doctors|docs|portfolio)/kendabaeva(-[a-z0-9-]+)?\.(webp|png)$  /assets/img/$1/kenzhabaeva$2.$3
     RedirectMatch 301 ^/vrachi/hachatryan(-.*)?/?$           /doctors/hachatryan.html
     # общий «хвост» для остальных старых /vrachi/* → витрина врачей
     RedirectMatch 301 ^/vrachi(/.*)?$                        /doctors/

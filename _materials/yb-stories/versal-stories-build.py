@@ -77,7 +77,7 @@ d.line([vs.ML, y+14, vs.ML+150, y+14], fill=vs.GOLD, width=6)
 y += 66
 pw, phh, gap = 296, 356, 24
 xs = [vs.ML, (vs.W - pw)//2, vs.W - vs.ML - pw]
-rows = [("drobkova", "savchuk", "smolyakova"), ("rustamov", "kendabaeva", "hachatryan")]
+rows = [("drobkova", "savchuk", "smolyakova"), ("rustamov", "kenzhabaeva", "hachatryan")]
 for row in rows:
     for slug, x in zip(row, xs):
         p = Image.open(vs.VD / f"assets/img/doctors/{slug}.webp").convert("RGB")
@@ -101,7 +101,7 @@ vs.doctors_slide("v-s4-2.jpg", ["Врачи «Версаль»"],
 vs.doctors_slide("v-s4-3.jpg", ["…и вся команда"],
     [("savchuk", "Григорий Савчук", "Хирург-имплантолог",
       ["Стаж 10+ лет", "Имплантация, протезирование"]),
-     ("kendabaeva", "Зухро Кенжабаева", "Гигиенист",
+     ("kenzhabaeva", "Зухро Кенжабаева", "Гигиенист",
       ["Гигиена и Air Flow", "Отбеливание"]),
      ("hachatryan", "Карина Хачатрян", "Детский стоматолог",
       ["Приём детей с 2 лет", "Бережно и в игре"])],
